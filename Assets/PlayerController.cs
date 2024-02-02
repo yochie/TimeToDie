@@ -38,7 +38,7 @@ public class PlayerController : MonoBehaviour
         if (this.jumped)
         {
             Debug.Log("jumping");
-            this.playerRigidbody2D.AddForce(Vector2.up * this.jumpForce);
+            this.playerRigidbody2D.AddForce(Vector2.up * this.jumpForce, ForceMode2D.Impulse);
             this.jumped = false;
         }
     }
