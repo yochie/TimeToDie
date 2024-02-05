@@ -6,51 +6,90 @@ using UnityEngine.InputSystem;
 public class PlayerController : MonoBehaviour
 {
     [SerializeField]
-    private float moveForce;
+    private float moveSpeed;
     
     [SerializeField]
-    private float jumpForce;
+    private float jumpSpeed;
 
     [SerializeField]
-    private CapsuleCollider2D playerCollider2D;
+    private float maxJumpHoldTime;
 
     [SerializeField]
     private Rigidbody2D playerRigidbody2D;
 
     [SerializeField]
-    private CapsuleCollider2D groundOverlapCapsule;
+    private Collider2D groundOverlapCollider;
 
     [SerializeField]
     private LayerMask groundLayerMask;
 
-    private bool isGrounded = false;
+    [SerializeField]
+    PlayerInput playerInput;
 
-    private Vector2 movement;
-    private bool jumped;
+    private Vector2 moveInput;
 
+    private bool isGrounded;
+    private InputAction jumpAction;
+    private bool jumpedFromGround;
+    private bool jumping;
+    private float jumpStartedAt;
+
+    private void Start()
+    {
+        this.moveInput = Vector2.zero;
+
+        this.isGrounded = false;
+        jumpAction = this.playerInput.actions["Jump"];
+        this.jumpedFromGround = false;
+        this.jumping = false;
+        this.jumpStartedAt = 0f;
+    }
 
     private void FixedUpdate()
-    {        
-        this.isGrounded = this.groundOverlapCapsule.IsTouchingLayers(this.groundLayerMask);
+    {
+        //allow player input to control horizontal velocity
+        float xVelocity = this.moveInput.x * this.moveSpeed * Time.fixedDeltaTime;
 
-        this.playerRigidbody2D.AddForce(this.movement * this.moveForce * Time.fixedDeltaTime);
+        //let physics handle vertical velocity unless jumping
+        float yVelocity = this.playerRigidbody2D.velocity.y;
 
-        if (this.jumped)
+        this.isGrounded = this.groundOverlapCollider.IsTouchingLayers(this.groundLayerMask);
+        if (this.jumpedFromGround)
         {
-            Debug.Log("jumping");
-            this.playerRigidbody2D.AddForce(Vector2.up * this.jumpForce, ForceMode2D.Impulse);
-            this.jumped = false;
+            //start jump
+            Debug.Log("jump");
+            this.jumpStartedAt = Time.time;
+            this.jumpedFromGround = false;
+            this.jumping = true;
+            yVelocity = this.jumpSpeed * Time.fixedDeltaTime;
         }
+        else if (this.jumping && !jumpAction.IsPressed())
+        {
+            //button released : let gravity take over
+            this.jumping = false;
+        }
+        else if (this.jumping && jumpAction.IsPressed() && Time.time - this.jumpStartedAt < this.maxJumpHoldTime)
+        {
+            //button held : continue jump
+            yVelocity = this.jumpSpeed * Time.fixedDeltaTime;
+        }
+        else
+        {
+            //not jumping or jump ended due to timeout
+            this.jumping = false;
+        }
+
+        this.playerRigidbody2D.velocity = new Vector2(xVelocity, yVelocity);
     }
 
     //Called by input system
-    public void OnMove(InputValue value) => this.movement = value.Get<Vector2>();
+    public void OnMove(InputValue value) => this.moveInput = value.Get<Vector2>();
 
     //Called by input system
     public void OnJump(InputValue value)
     {
-        if (this.isGrounded)
-            this.jumped = true;
+        if(this.isGrounded)
+            this.jumpedFromGround = true;
     }
 
 }
