@@ -15,7 +15,6 @@ public class FallDamage : MonoBehaviour
 
     public void OnLand(float from, float to)
     {
-        //Debug.LogFormat("fell from {0} to {1}",from, to);
         float thresholdExcess = (from - to) - this.threshold;
         if (thresholdExcess > 0) {
             //Debug.Log("ouch");
