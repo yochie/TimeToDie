@@ -15,6 +15,7 @@ public class DamageHandler : MonoBehaviour
     {
         int pain = (int) (damageAmount * painByDamageType.GetPainForDamageType(damageType));
 
+        Debug.LogFormat("Taking {0} {1} damage", damageAmount, damageType);
         //update model
         this.playerStats.TakeDamage(damageAmount);
         this.playerStats.TakePain(pain);

@@ -70,7 +70,6 @@ public class PlayerController : MonoBehaviour
         if (this.jumpedFromGround)
         {
             //start jump
-            Debug.Log("jump");
             this.jumpStartedAtTime = Time.time;
             this.jumpedFromGround = false;
             this.jumping = true;
