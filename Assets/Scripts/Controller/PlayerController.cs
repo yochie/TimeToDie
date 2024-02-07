@@ -15,6 +15,10 @@ public class PlayerController : MonoBehaviour
     [SerializeField]
     private float maxJumpHoldTime;
 
+    //allows jumping for some time after becoming ungrounded
+    [SerializeField]
+    private float coyoteTime;
+
     [SerializeField]
     private Rigidbody2D playerRigidbody2D;
 
@@ -38,6 +42,7 @@ public class PlayerController : MonoBehaviour
     private bool jumping;
     private float jumpStartedAtTime;
     private float fallingFrom;
+    private float lastGroundedTime;
 
     private void Start()
     {
@@ -49,6 +54,7 @@ public class PlayerController : MonoBehaviour
         this.jumping = false;
         this.jumpStartedAtTime = 0f;
         this.fallingFrom = float.MinValue;
+        this.lastGroundedTime = float.MinValue;
     }
 
     private void FixedUpdate()
@@ -59,7 +65,7 @@ public class PlayerController : MonoBehaviour
         //let physics handle vertical velocity unless jumping
         float yVelocity = this.playerRigidbody2D.velocity.y;
 
-        //for land event
+        //throws fall event
         bool wasGrounded = this.isGrounded;
         this.isGrounded = this.groundOverlapCollider.IsTouchingLayers(this.groundLayerMask);
         if(!wasGrounded && isGrounded)
@@ -67,6 +73,7 @@ public class PlayerController : MonoBehaviour
             this.onFallEvent.Invoke(this.fallingFrom, this.transform.position.y);
             this.fallingFrom = float.MinValue;
         }
+
         if (this.jumpedFromGround)
         {
             //start jump
@@ -94,6 +101,8 @@ public class PlayerController : MonoBehaviour
         this.playerRigidbody2D.velocity = new Vector2(xVelocity, yVelocity);
         if (!isGrounded)
             this.fallingFrom = Mathf.Max(this.transform.position.y, this.fallingFrom);
+        else
+            this.lastGroundedTime = Time.time;
     }
 
     //Called by input system
@@ -103,6 +112,8 @@ public class PlayerController : MonoBehaviour
     public void OnJump(InputValue value)
     {
         if(this.isGrounded)
+            this.jumpedFromGround = true;
+        else if(Time.time - this.lastGroundedTime <= this.coyoteTime && Time.time - jumpStartedAtTime > this.coyoteTime)
             this.jumpedFromGround = true;
     }
 

@@ -75,7 +75,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 0.9, y: 1}
   m_EdgeRadius: 0
 --- !u!1 &2459015900144294261
 GameObject:
@@ -86,11 +86,14 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8795022998840425010}
+  - component: {fileID: 2780025174036447778}
   - component: {fileID: 7361749494432609640}
   - component: {fileID: 1295869983845052336}
-  - component: {fileID: 2780025174036447778}
   - component: {fileID: 8242729820826645029}
   - component: {fileID: 8792544414735595271}
+  - component: {fileID: 6306635591716352253}
+  - component: {fileID: 5057547506814150812}
+  - component: {fileID: 2950932620915711278}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -114,6 +117,43 @@ Transform:
   - {fileID: 6559983813653314713}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2780025174036447778
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2459015900144294261}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5b86a273e4c918e47ad4414ec93f0159, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  moveSpeed: 500
+  jumpSpeed: 700
+  maxJumpHoldTime: 0.35
+  coyoteTime: 0.15
+  playerRigidbody2D: {fileID: 1295869983845052336}
+  groundOverlapCollider: {fileID: 3819495475494984036}
+  groundLayerMask:
+    serializedVersion: 2
+    m_Bits: 64
+  playerInput: {fileID: 8242729820826645029}
+  onFallEvent:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 6306635591716352253}
+        m_TargetAssemblyTypeName: FallDamage, Assembly-CSharp
+        m_MethodName: OnLand
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!212 &7361749494432609640
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -193,27 +233,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 1
   m_Constraints: 4
---- !u!114 &2780025174036447778
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2459015900144294261}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5b86a273e4c918e47ad4414ec93f0159, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  moveSpeed: 500
-  jumpSpeed: 700
-  maxJumpHoldTime: 0.35
-  playerRigidbody2D: {fileID: 1295869983845052336}
-  groundOverlapCollider: {fileID: 3819495475494984036}
-  groundLayerMask:
-    serializedVersion: 2
-    m_Bits: 64
-  playerInput: {fileID: 8242729820826645029}
 --- !u!114 &8242729820826645029
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -289,3 +308,48 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 2}
   m_EdgeRadius: 0
+--- !u!114 &6306635591716352253
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2459015900144294261}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1c105064f9d60f54089d4e3073be1f0a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  threshold: 9
+  damagePerUnitAboveThreshold: 3
+  damageHandler: {fileID: 5057547506814150812}
+--- !u!114 &5057547506814150812
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2459015900144294261}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bf520811927c1f24cbbc52b23fc7841b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerStats: {fileID: 2950932620915711278}
+  painByDamageType: {fileID: 11400000, guid: 2c4bb40960534994cbe121912f95c19b, type: 2}
+--- !u!114 &2950932620915711278
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2459015900144294261}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 327a1897e9a9498449b5412a67a3e290, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxHealth: 100
+  maxPain: 100
+  healthBar: {fileID: 0}
+  painBar: {fileID: 0}
