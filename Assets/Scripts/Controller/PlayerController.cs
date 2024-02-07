@@ -26,6 +26,9 @@ public class PlayerController : MonoBehaviour
     private Collider2D groundOverlapCollider;
 
     [SerializeField]
+    private Collider2D ceilingOverlapCollider;
+
+    [SerializeField]
     private LayerMask groundLayerMask;
 
     [SerializeField]
@@ -37,6 +40,8 @@ public class PlayerController : MonoBehaviour
     private Vector2 moveInput;
 
     private bool isGrounded;
+    private bool isCeilinged;
+
     private InputAction jumpAction;
     private bool jumpedFromGround;
     private bool jumping;
@@ -49,6 +54,7 @@ public class PlayerController : MonoBehaviour
         this.moveInput = Vector2.zero;
 
         this.isGrounded = false;
+        this.isCeilinged = false;
         jumpAction = this.playerInput.actions["Jump"];
         this.jumpedFromGround = false;
         this.jumping = false;
@@ -74,6 +80,10 @@ public class PlayerController : MonoBehaviour
             this.fallingFrom = float.MinValue;
         }
 
+        this.isCeilinged = this.ceilingOverlapCollider.IsTouchingLayers(this.groundLayerMask);
+        if (this.isCeilinged)
+            Debug.Log("hit ceiling");
+
         if (this.jumpedFromGround)
         {
             //start jump
@@ -85,6 +95,11 @@ public class PlayerController : MonoBehaviour
         else if (this.jumping && !jumpAction.IsPressed())
         {
             //button released : let gravity take over
+            this.jumping = false;
+        }
+        else if (this.jumping && this.isCeilinged)
+        {
+            //hit ceiling : interrupt jump
             this.jumping = false;
         }
         else if (this.jumping && jumpAction.IsPressed() && Time.time - this.jumpStartedAtTime < this.maxJumpHoldTime)
