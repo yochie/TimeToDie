@@ -40,7 +40,6 @@ public class PlayerController : MonoBehaviour
     private Vector2 moveInput;
 
     private bool isGrounded;
-    private bool isCeilinged;
 
     private InputAction jumpAction;
 
@@ -64,8 +63,7 @@ public class PlayerController : MonoBehaviour
         this.moveInput = Vector2.zero;
 
         this.isGrounded = false;
-        this.isCeilinged = false;
-        jumpAction = this.playerInput.actions["Jump"];
+        this.jumpAction = this.playerInput.actions["Jump"];
         this.jumpedFromGround = false;
         this.jumping = false;
         this.jumpStartedAtTime = 0f;
@@ -91,38 +89,14 @@ public class PlayerController : MonoBehaviour
         }
 
         //to interrupt jumping
-        this.isCeilinged = this.ceilingOverlapCollider.IsTouchingLayers(this.groundLayerMask);
-
-        //UPDATE JUMP STATE/SPEED
-        if (this.jumpedFromGround)
+        bool isCeilinged = this.ceilingOverlapCollider.IsTouchingLayers(this.groundLayerMask);
+        this.jumping = this.UpdateJumpState(wasJumping: this.jumping, jumpInputed : this.jumpedFromGround, isCeilinged : isCeilinged, jumpAction: this.jumpAction, maxJumpHoldTime: this.maxJumpHoldTime);
+        if (this.jumping)
         {
-            //start jump
-            this.jumpStartedAtTime = Time.time;
-            this.jumpedFromGround = false;
-            this.jumping = true;
             yVelocity = this.jumpSpeed * Time.fixedDeltaTime;
         }
-        else if (this.jumping && !jumpAction.IsPressed())
-        {
-            //button released : let gravity take over
-            this.jumping = false;
-        }
-        else if (this.jumping && this.isCeilinged)
-        {
-            //hit ceiling : interrupt jump
-            this.jumping = false;
-        }
-        else if (this.jumping && jumpAction.IsPressed() && Time.time - this.jumpStartedAtTime < this.maxJumpHoldTime)
-        {
-            //button held : continue jump
-            yVelocity = this.jumpSpeed * Time.fixedDeltaTime;
-        }
-        else
-        {
-            //not jumping or jump ended due to timeout
-            this.jumping = false;
-        }
 
+        //set velocity for this frame based on input and jump state
         this.playerRigidbody2D.velocity = new Vector2(xVelocity, yVelocity);
         
         if (!isGrounded)
@@ -131,6 +105,43 @@ public class PlayerController : MonoBehaviour
         else
             //for coyote time
             this.lastGroundedTime = Time.time;
+    }
+
+
+    //Side effects: Will update jump input state and jump start time
+    //returns true if jumping for this frame
+    private bool UpdateJumpState(bool wasJumping, bool jumpInputed, bool isCeilinged, InputAction jumpAction, float maxJumpHoldTime)
+    {
+        bool jumping;
+        if (jumpInputed)
+        {
+            //start jump
+            this.jumpStartedAtTime = Time.time;
+            //reset input
+            this.jumpedFromGround = false;
+            jumping = true;
+        }
+        else if (wasJumping && !jumpAction.IsPressed())
+        {
+            //button released : let gravity take over
+            jumping = false;
+        }
+        else if (wasJumping && isCeilinged)
+        {
+            //hit ceiling : interrupt jump
+            jumping = false;
+        }
+        else if (wasJumping && jumpAction.IsPressed() && Time.time - this.jumpStartedAtTime < maxJumpHoldTime)
+        {
+            //button held : continue jump
+            jumping = true;
+        }
+        else
+        {
+            //not jumping or jump ended due to timeout
+            jumping = false;
+        }
+        return jumping;
     }
 
     //Called by input system
