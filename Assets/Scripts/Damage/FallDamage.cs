@@ -17,8 +17,10 @@ public class FallDamage : MonoBehaviour
     {
         float thresholdExcess = (from - to) - this.threshold;
         if (thresholdExcess > 0) {
-            //Debug.Log("ouch");
-            this.damageHandler.TakeDamage((int) (thresholdExcess * this.damagePerUnitAboveThreshold), DamageType.fall);
+            int damage = (int)(thresholdExcess * this.damagePerUnitAboveThreshold);
+            //only send damage to handler if rounded damage is noticeable
+            if(damage > 0)
+                this.damageHandler.TakeDamage(damage, DamageType.fall);
         }
     }
 }
