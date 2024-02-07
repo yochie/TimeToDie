@@ -80,9 +80,8 @@ public class PlayerController : MonoBehaviour
             this.fallingFrom = float.MinValue;
         }
 
+        //to interrupt jumping
         this.isCeilinged = this.ceilingOverlapCollider.IsTouchingLayers(this.groundLayerMask);
-        if (this.isCeilinged)
-            Debug.Log("hit ceiling");
 
         if (this.jumpedFromGround)
         {
@@ -114,9 +113,12 @@ public class PlayerController : MonoBehaviour
         }
 
         this.playerRigidbody2D.velocity = new Vector2(xVelocity, yVelocity);
+        
         if (!isGrounded)
+            //for fall damage
             this.fallingFrom = Mathf.Max(this.transform.position.y, this.fallingFrom);
         else
+            //for coyote time
             this.lastGroundedTime = Time.time;
     }
 
