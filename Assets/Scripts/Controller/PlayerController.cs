@@ -43,10 +43,20 @@ public class PlayerController : MonoBehaviour
     private bool isCeilinged;
 
     private InputAction jumpAction;
+
+    //set from input
     private bool jumpedFromGround;
+
+    //for holding jump
     private bool jumping;
+
+    //for jump cooldown + timeout
     private float jumpStartedAtTime;
+    
+    //for fall damage
     private float fallingFrom;
+
+    //for coyote time
     private float lastGroundedTime;
 
     private void Start()
@@ -83,6 +93,7 @@ public class PlayerController : MonoBehaviour
         //to interrupt jumping
         this.isCeilinged = this.ceilingOverlapCollider.IsTouchingLayers(this.groundLayerMask);
 
+        //UPDATE JUMP STATE/SPEED
         if (this.jumpedFromGround)
         {
             //start jump
