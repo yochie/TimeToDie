@@ -32,7 +32,13 @@ public class PlayerController : MonoBehaviour
     private LayerMask groundLayerMask;
 
     [SerializeField]
-    PlayerInput playerInput;
+    private PlayerInput playerInput;
+
+    [SerializeField]
+    private Animator animator;
+
+    [SerializeField]
+    private SpriteRenderer spriteRenderer;
 
     [SerializeField]
     private UnityEvent<float, float> onFallEvent;
@@ -57,6 +63,9 @@ public class PlayerController : MonoBehaviour
 
     //for coyote time
     private float lastGroundedTime;
+
+    //for flipping sprite whenever changing dir
+    private float previousDirection;
 
     private void Start()
     {
@@ -105,6 +114,13 @@ public class PlayerController : MonoBehaviour
         else
             //for coyote time
             this.lastGroundedTime = Time.time;
+
+        this.animator.SetBool("jumping", this.jumping);
+        this.animator.SetBool("running", this.moveInput.x != 0);
+        this.animator.SetBool("grounded", this.isGrounded);
+        if (this.moveInput.x != 0 && this.moveInput.x != this.previousDirection)
+            this.spriteRenderer.flipX = this.moveInput.x != 1f;
+        this.previousDirection = this.moveInput.x;
     }
 
 
@@ -155,5 +171,4 @@ public class PlayerController : MonoBehaviour
         else if(Time.time - this.lastGroundedTime <= this.coyoteTime && Time.time - jumpStartedAtTime > this.coyoteTime)
             this.jumpedFromGround = true;
     }
-
 }

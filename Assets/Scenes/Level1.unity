@@ -9405,6 +9405,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 2780025174036447778, guid: 12361413f5d14d947a4756ccfbac0c9f, type: 3}
+      propertyPath: animator
+      value: 
+      objectReference: {fileID: 8897156749634662608}
+    - target: {fileID: 2780025174036447778, guid: 12361413f5d14d947a4756ccfbac0c9f, type: 3}
+      propertyPath: spriteRenderer
+      value: 
+      objectReference: {fileID: 8897156749634662615}
     - target: {fileID: 2950932620915711278, guid: 12361413f5d14d947a4756ccfbac0c9f, type: 3}
       propertyPath: painBar
       value: 
@@ -9413,6 +9421,10 @@ PrefabInstance:
       propertyPath: healthBar
       value: 
       objectReference: {fileID: 1866773205}
+    - target: {fileID: 7361749494432609640, guid: 12361413f5d14d947a4756ccfbac0c9f, type: 3}
+      propertyPath: m_FlipX
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8795022998840425010, guid: 12361413f5d14d947a4756ccfbac0c9f, type: 3}
       propertyPath: m_LocalPosition.x
       value: 3.8
@@ -9461,6 +9473,16 @@ PrefabInstance:
 --- !u!4 &8897156749634662607 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8795022998840425010, guid: 12361413f5d14d947a4756ccfbac0c9f, type: 3}
+  m_PrefabInstance: {fileID: 8897156749634662594}
+  m_PrefabAsset: {fileID: 0}
+--- !u!95 &8897156749634662608 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 5918370114230440974, guid: 12361413f5d14d947a4756ccfbac0c9f, type: 3}
+  m_PrefabInstance: {fileID: 8897156749634662594}
+  m_PrefabAsset: {fileID: 0}
+--- !u!212 &8897156749634662615 stripped
+SpriteRenderer:
+  m_CorrespondingSourceObject: {fileID: 7361749494432609640, guid: 12361413f5d14d947a4756ccfbac0c9f, type: 3}
   m_PrefabInstance: {fileID: 8897156749634662594}
   m_PrefabAsset: {fileID: 0}
 --- !u!1660057539 &9223372036854775807
