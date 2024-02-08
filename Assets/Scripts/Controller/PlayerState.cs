@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerStats : MonoBehaviour
+public class PlayerState : MonoBehaviour
 {
     [SerializeField]
     private int maxHealth;
@@ -11,10 +11,10 @@ public class PlayerStats : MonoBehaviour
     private int maxPain;
 
     [SerializeField]
-    private StatBar healthBar;
+    private UIController ui;
 
     [SerializeField]
-    private StatBar painBar;
+    private GameController gameController;
 
     private int currentPain;
     private int currentHealth;
@@ -25,18 +25,28 @@ public class PlayerStats : MonoBehaviour
         this.currentPain = 0;
     }
 
-    public void TakeDamage(int damageAmount)
+    //will apply damage and then pain if character survives hit
+    public void Hurt(int damageAmount, int painAmount)
     {
         this.currentHealth = Mathf.Clamp(this.currentHealth - damageAmount, 0, this.maxHealth);
         //update view
-        this.healthBar.SetVal(this.currentHealth, this.maxHealth);
-    }
+        this.ui.SetHealth(this.currentHealth, this.maxHealth);
 
-    public void TakePain(int painAmount) 
-    {
+        if (this.currentHealth <= 0)
+        {
+            this.gameController.EndGame(died: true, this.currentPain);
+            return;
+        }
+
+        //Check for pain after death so that killing blow deals no damage
         this.currentPain = Mathf.Clamp(this.currentPain + painAmount, 0, this.maxPain);
-        //update view        
-        this.painBar.SetVal(this.currentPain, this.maxPain);
+        this.ui.SetPain(this.currentPain, this.maxPain);
+
+        if (this.currentPain >= this.maxPain)
+        {
+            this.gameController.EndGame(died: false, this.currentPain);
+        }
+
     }
 
     public (int, int) GetHealthStats()

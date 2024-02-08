@@ -164,13 +164,13 @@ GameObject:
   m_Component:
   - component: {fileID: 8795022998840425010}
   - component: {fileID: 2780025174036447778}
+  - component: {fileID: 2950932620915711278}
+  - component: {fileID: 5057547506814150812}
+  - component: {fileID: 6306635591716352253}
   - component: {fileID: 7361749494432609640}
   - component: {fileID: 1295869983845052336}
-  - component: {fileID: 8242729820826645029}
   - component: {fileID: 8792544414735595271}
-  - component: {fileID: 6306635591716352253}
-  - component: {fileID: 5057547506814150812}
-  - component: {fileID: 2950932620915711278}
+  - component: {fileID: 8242729820826645029}
   - component: {fileID: 5918370114230440974}
   m_Layer: 7
   m_Name: Player
@@ -236,6 +236,51 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!114 &2950932620915711278
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2459015900144294261}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 327a1897e9a9498449b5412a67a3e290, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxHealth: 100
+  maxPain: 100
+  ui: {fileID: 0}
+  gameController: {fileID: 0}
+--- !u!114 &5057547506814150812
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2459015900144294261}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bf520811927c1f24cbbc52b23fc7841b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerStats: {fileID: 2950932620915711278}
+  painByDamageType: {fileID: 11400000, guid: 2c4bb40960534994cbe121912f95c19b, type: 2}
+--- !u!114 &6306635591716352253
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2459015900144294261}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1c105064f9d60f54089d4e3073be1f0a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  threshold: 9
+  damagePerUnitAboveThreshold: 3
+  damageHandler: {fileID: 5057547506814150812}
 --- !u!212 &7361749494432609640
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -315,36 +360,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 1
   m_Constraints: 4
---- !u!114 &8242729820826645029
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2459015900144294261}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 62899f850307741f2a39c98a8b639597, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Actions: {fileID: -944628639613478452, guid: 3814819d431f8c6448253af7a6e601b2, type: 3}
-  m_NotificationBehavior: 0
-  m_UIInputModule: {fileID: 0}
-  m_DeviceLostEvent:
-    m_PersistentCalls:
-      m_Calls: []
-  m_DeviceRegainedEvent:
-    m_PersistentCalls:
-      m_Calls: []
-  m_ControlsChangedEvent:
-    m_PersistentCalls:
-      m_Calls: []
-  m_ActionEvents: []
-  m_NeverAutoSwitchControlSchemes: 0
-  m_DefaultControlScheme: 
-  m_DefaultActionMap: Player
-  m_SplitScreenIndex: -1
-  m_Camera: {fileID: 0}
 --- !u!61 &8792544414735595271
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -390,7 +405,7 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.8, y: 2}
   m_EdgeRadius: 0
---- !u!114 &6306635591716352253
+--- !u!114 &8242729820826645029
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -399,42 +414,27 @@ MonoBehaviour:
   m_GameObject: {fileID: 2459015900144294261}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1c105064f9d60f54089d4e3073be1f0a, type: 3}
+  m_Script: {fileID: 11500000, guid: 62899f850307741f2a39c98a8b639597, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  threshold: 9
-  damagePerUnitAboveThreshold: 3
-  damageHandler: {fileID: 5057547506814150812}
---- !u!114 &5057547506814150812
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2459015900144294261}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bf520811927c1f24cbbc52b23fc7841b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  playerStats: {fileID: 2950932620915711278}
-  painByDamageType: {fileID: 11400000, guid: 2c4bb40960534994cbe121912f95c19b, type: 2}
---- !u!114 &2950932620915711278
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2459015900144294261}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 327a1897e9a9498449b5412a67a3e290, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  maxHealth: 100
-  maxPain: 100
-  healthBar: {fileID: 0}
-  painBar: {fileID: 0}
+  m_Actions: {fileID: -944628639613478452, guid: 3814819d431f8c6448253af7a6e601b2, type: 3}
+  m_NotificationBehavior: 0
+  m_UIInputModule: {fileID: 0}
+  m_DeviceLostEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_DeviceRegainedEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_ControlsChangedEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_ActionEvents: []
+  m_NeverAutoSwitchControlSchemes: 0
+  m_DefaultControlScheme: 
+  m_DefaultActionMap: Player
+  m_SplitScreenIndex: -1
+  m_Camera: {fileID: 0}
 --- !u!95 &5918370114230440974
 Animator:
   serializedVersion: 5

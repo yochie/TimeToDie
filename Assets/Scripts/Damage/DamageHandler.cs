@@ -6,18 +6,17 @@ using UnityEngine;
 public class DamageHandler : MonoBehaviour
 {
     [SerializeField]
-    private PlayerStats playerStats;
+    private PlayerState playerStats;
 
     [SerializeField]
     private PainByDamageTypeSO painByDamageType;
 
-    internal void TakeDamage(int damageAmount, DamageType damageType)
+    internal void TakeDamage(int damage, DamageType damageType)
     {
-        int pain = (int) (damageAmount * painByDamageType.GetPainForDamageType(damageType));
+        int pain = (int) (damage * painByDamageType.GetPainForDamageType(damageType));
 
-        Debug.LogFormat("Taking {0} {1} damage", damageAmount, damageType);
+        Debug.LogFormat("Taking {0} {1} damage for {2} pain", damage, damageType, pain);
         //update model
-        this.playerStats.TakeDamage(damageAmount);
-        this.playerStats.TakePain(pain);
+        this.playerStats.Hurt(damage, pain);
     }
 }
