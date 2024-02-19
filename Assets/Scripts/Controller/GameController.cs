@@ -14,8 +14,12 @@ public class GameController : MonoBehaviour
     [SerializeField]
     private ScoreCalculator scorer;
 
-    public void EndGame(bool died, int pain)
+    [SerializeField]
+    private PlayerController playerController;
+
+    public void EndGame(bool died, float pain)
     {
+        this.playerController.gameObject.SetActive(false);
         this.timer.Stop();
         float timer = this.timer.GetTimerVal();
         int score = this.scorer.GetScore(pain, timer);

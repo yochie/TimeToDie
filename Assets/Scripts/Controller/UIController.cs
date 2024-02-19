@@ -19,14 +19,14 @@ public class UIController : MonoBehaviour
     [SerializeField]
     private TextMeshProUGUI timeDisplay;
 
-    internal void SetHealth(int current, int max)
+    internal void SetHealth(float current, float max)
     {
-        this.healthBar.SetVal(current, max);
+        this.healthBar.SetVal((int) Math.Round(current, MidpointRounding.AwayFromZero), (int) Math.Round(max, MidpointRounding.AwayFromZero));
     }
 
-    internal void SetPain(int current, int max)
+    internal void SetPain(float current, float max)
     {
-        this.painBar.SetVal(current, max);
+        this.painBar.SetVal((int)Math.Round(current, MidpointRounding.AwayFromZero), (int)Math.Round(max, MidpointRounding.AwayFromZero));
     }
 
     internal void UpdateTimer(float currentTime)
@@ -34,8 +34,8 @@ public class UIController : MonoBehaviour
         this.timeDisplay.text = string.Format("{0} s",currentTime.ToString("F", CultureInfo.InvariantCulture));   
     }
 
-    internal void EndGame(bool win, float timerSeconds, int pain, int score)
+    internal void EndGame(bool win, float timerSeconds, float pain, int score)
     {
-        this.endScreen.Display(win, timerSeconds, pain, score);
+        this.endScreen.Display(win, timerSeconds, (int) Math.Round(pain, MidpointRounding.AwayFromZero), score);
     }
 }

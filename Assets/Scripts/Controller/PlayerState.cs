@@ -5,10 +5,10 @@ using UnityEngine;
 public class PlayerState : MonoBehaviour
 {
     [SerializeField]
-    private int maxHealth;
+    private Health health;
 
     [SerializeField]
-    private int maxPain;
+    private float maxPain;
 
     [SerializeField]
     private UIController ui;
@@ -16,23 +16,21 @@ public class PlayerState : MonoBehaviour
     [SerializeField]
     private GameController gameController;
 
-    private int currentPain;
-    private int currentHealth;    
+    private float currentPain;
 
     private void Start()
-    {
-        this.currentHealth = this.maxHealth;
+    {        
         this.currentPain = 0;
     }
 
     //will apply damage and then pain if character survives hit
-    public void Hurt(int damageAmount, int painAmount)
+    public void Hurt(float damageAmount, float painAmount)
     {
-        this.currentHealth = Mathf.Clamp(this.currentHealth - damageAmount, 0, this.maxHealth);
+        this.health.CurrentHealth -= damageAmount;
         //update view
-        this.ui.SetHealth(this.currentHealth, this.maxHealth);
+        this.ui.SetHealth(this.health.CurrentHealth, this.health.MaxHealth);
 
-        if (this.currentHealth <= 0)
+        if (this.health.CurrentHealth <= 0)
         {
             this.gameController.EndGame(died: true, this.currentPain);
             return;
@@ -47,15 +45,5 @@ public class PlayerState : MonoBehaviour
             this.gameController.EndGame(died: false, this.currentPain);
         }
 
-    }
-
-    public (int, int) GetHealthStats()
-    {
-        return (this.currentHealth, this.maxHealth);
-    }
-
-    public (int, int) GetPainStats()
-    {
-        return (this.currentPain, this.maxPain);
     }
 }

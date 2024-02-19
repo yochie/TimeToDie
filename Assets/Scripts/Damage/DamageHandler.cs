@@ -11,9 +11,9 @@ public class DamageHandler : MonoBehaviour
     [SerializeField]
     private PainByDamageTypeSO painByDamageType;
 
-    internal void TakeDamage(int damage, DamageType damageType)
+    internal void TakeDamage(float damage, DamageType damageType)
     {
-        int pain = (int) (damage * painByDamageType.GetPainForDamageType(damageType));
+        float pain = damage * painByDamageType.GetPainForDamageType(damageType);
 
         Debug.LogFormat("Taking {0} {1} damage for {2} pain", damage, damageType, pain);
         //update model

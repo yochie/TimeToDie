@@ -13,3 +13,4 @@ MonoBehaviour:
   m_Name: PainByDamageType
   m_EditorClassIdentifier: 
   fallDamagePainRatio: 0.5
+  spikesDamagePainRatio: 2
