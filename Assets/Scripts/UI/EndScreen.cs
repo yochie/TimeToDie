@@ -22,7 +22,7 @@ public class EndScreen : MonoBehaviour
     internal void Display(bool win, float timerSeconds, int pain, int score)
     {
         this.header.text = win ? "Congrats, you died." : "Its too much to handle. You live to die another day.";
-        this.time.text = string.Format("Time: {0} seconds", timerSeconds.ToString("F", CultureInfo.InvariantCulture));
+        this.time.text = string.Format("Time : {0} seconds", timerSeconds.ToString("F", CultureInfo.InvariantCulture));
         this.pain.text = string.Format("Pain : {0} dols", pain);
         this.score.text = win ? string.Format("Score : {0} %", score) : 0.ToString();
         this.gameObject.SetActive(true);
