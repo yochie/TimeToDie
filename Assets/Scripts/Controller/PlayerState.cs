@@ -17,7 +17,7 @@ public class PlayerState : MonoBehaviour
     private GameController gameController;
 
     private int currentPain;
-    private int currentHealth;
+    private int currentHealth;    
 
     private void Start()
     {

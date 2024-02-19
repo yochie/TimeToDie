@@ -171,7 +171,8 @@ GameObject:
   - component: {fileID: 1295869983845052336}
   - component: {fileID: 8242729820826645029}
   - component: {fileID: 5918370114230440974}
-  - component: {fileID: 730684588783198316}
+  - component: {fileID: 6995331321953915203}
+  - component: {fileID: 1222413100376327972}
   m_Layer: 7
   m_Name: Player
   m_TagString: Untagged
@@ -208,7 +209,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5b86a273e4c918e47ad4414ec93f0159, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 1000
+  moveSpeed: 700
   jumpSpeed: 700
   maxJumpHoldTime: 0.35
   coyoteTime: 0.1
@@ -219,8 +220,8 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 64
   playerInput: {fileID: 8242729820826645029}
-  animator: {fileID: 0}
-  spriteRenderer: {fileID: 0}
+  animator: {fileID: 5918370114230440974}
+  spriteRenderer: {fileID: 7361749494432609640}
   onFallEvent:
     m_PersistentCalls:
       m_Calls:
@@ -250,8 +251,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHealth: 100
   maxPain: 100
+  defaultMoveSpeed: 1000
   ui: {fileID: 0}
   gameController: {fileID: 0}
+  <Collider>k__BackingField: {fileID: 6995331321953915203}
 --- !u!114 &5057547506814150812
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -345,7 +348,7 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 1
   m_UseAutoMass: 1
-  m_Mass: 1.4711947
+  m_Mass: 1.8
   m_LinearDrag: 0
   m_AngularDrag: 0.05
   m_GravityScale: 10
@@ -411,8 +414,8 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
---- !u!70 &730684588783198316
-CapsuleCollider2D:
+--- !u!61 &6995331321953915203
+BoxCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -443,6 +446,28 @@ CapsuleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: -0.014413118}
-  m_Size: {x: 0.8176713, y: 1.9747233}
-  m_Direction: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.37, y: 0.5}
+    oldSize: {x: 2, y: 2}
+    newSize: {x: 1, y: 2}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 0.9, y: 2}
+  m_EdgeRadius: 0
+--- !u!114 &1222413100376327972
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2459015900144294261}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 635183c21127eac4eb15509442732179, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
