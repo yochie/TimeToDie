@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -8,12 +9,13 @@ public class Mover : MonoBehaviour
     public Collider2D Collider { get; private set; }
 
     [field: SerializeField]
-    public int DefaultMoveSpeed { get; private set; }
+    public float DefaultMoveSpeed { get; private set; }
 
     [SerializeField]
     private SpriteRenderer spriteRenderer;
 
-    public int CurrentMoveSpeed { get; set; }
+    [field: SerializeField]
+    public float CurrentMoveSpeed { get; set; }
 
     //for flipping sprite whenever changing dir
     private float previousDirection;
@@ -54,4 +56,8 @@ public class Mover : MonoBehaviour
         return this.movedInDirection != 0;
     }
 
+    internal void MultiplySpeed(float speedMultiplier)
+    {
+        this.CurrentMoveSpeed = this.CurrentMoveSpeed * speedMultiplier;
+    }
 }

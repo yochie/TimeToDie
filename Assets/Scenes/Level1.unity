@@ -137,8 +137,9 @@ GameObject:
   - component: {fileID: 41165208}
   - component: {fileID: 41165207}
   - component: {fileID: 41165206}
-  m_Layer: 6
-  m_Name: hazards
+  - component: {fileID: 41165211}
+  m_Layer: 8
+  m_Name: spikes
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -504,6 +505,22 @@ Tilemap:
     e31: 0
     e32: 0
     e33: 1
+--- !u!114 &41165211
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 41165204}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8d013227e9db41e4d8794966ba62ada3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  affectedMoversMask:
+    serializedVersion: 2
+    m_Bits: 128
+  speedMultiplier: 0.3
 --- !u!114 &42811310 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 7816120914607718868, guid: 09ccf4bd602718242a6dd76c4afbf7b0, type: 3}
@@ -8505,7 +8522,7 @@ PlatformEffector2D:
   m_UseColliderMask: 1
   m_ColliderMask:
     serializedVersion: 2
-    m_Bits: 128
+    m_Bits: 640
   m_RotationalOffset: 0
   m_UseOneWay: 0
   m_UseOneWayGrouping: 0
@@ -9852,6 +9869,26 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 475551948124404132, guid: 12361413f5d14d947a4756ccfbac0c9f, type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 551080094386887760, guid: 12361413f5d14d947a4756ccfbac0c9f, type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 1222413100376327972, guid: 12361413f5d14d947a4756ccfbac0c9f, type: 3}
+      propertyPath: mover
+      value: 
+      objectReference: {fileID: 8897156749634662625}
+    - target: {fileID: 1222413100376327972, guid: 12361413f5d14d947a4756ccfbac0c9f, type: 3}
+      propertyPath: speedMultiplier
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1222413100376327972, guid: 12361413f5d14d947a4756ccfbac0c9f, type: 3}
+      propertyPath: spikeLayerMask.m_Bits
+      value: 256
+      objectReference: {fileID: 0}
     - target: {fileID: 2459015900144294261, guid: 12361413f5d14d947a4756ccfbac0c9f, type: 3}
       propertyPath: m_Name
       value: Player
@@ -9916,7 +9953,8 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 1222413100376327972, guid: 12361413f5d14d947a4756ccfbac0c9f, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents:
@@ -10015,6 +10053,7 @@ MonoBehaviour:
   <Collider>k__BackingField: {fileID: 8897156749634662623}
   <DefaultMoveSpeed>k__BackingField: 15
   spriteRenderer: {fileID: 8897156749634662615}
+  <CurrentMoveSpeed>k__BackingField: 0
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
