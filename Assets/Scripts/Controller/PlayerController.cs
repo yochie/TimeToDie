@@ -119,10 +119,20 @@ public class PlayerController : MonoBehaviour
         this.animator.SetBool("running", this.moveInput.x != 0);
         this.animator.SetBool("grounded", this.isGrounded);
         if (this.moveInput.x != 0 && this.moveInput.x != this.previousDirection)
-            this.spriteRenderer.flipX = this.moveInput.x != 1f;
+        {
+            //flip
+            this.Flip(faceDir : this.moveInput.x);
+        }
         this.previousDirection = this.moveInput.x;
     }
 
+    private void Flip(float faceDir)
+    {
+        //Vector3 newScale = this.transform.localScale;        
+        //newScale.x = faceDir;
+        //this.transform.localScale = newScale;
+        this.spriteRenderer.flipX = faceDir == 1 ? false : true;
+    }
 
     //Side effects: Will update jump input state and jump start time
     //returns true if jumping for this frame
