@@ -6,19 +6,25 @@ using UnityEngine;
 public class PainByDamageTypeSO : ScriptableObject
 {
     [SerializeField]
-    private float fallDamagePainRatio;
+    private float fallPainRatio;
 
     [SerializeField]
-    private float spikesDamagePainRatio;
+    private float spikePainRatio;
+
+
+    [SerializeField]
+    private float arrowPainRatio;
 
     public float GetPainForDamageType(DamageType type)
     {
         switch (type)
         {
             case DamageType.fall:
-                return this.fallDamagePainRatio;
+                return this.fallPainRatio;
             case DamageType.spikes:
-                return this.spikesDamagePainRatio;
+                return this.spikePainRatio;
+            case DamageType.arrow:
+                return this.arrowPainRatio;
         }
         return 1;
     }
