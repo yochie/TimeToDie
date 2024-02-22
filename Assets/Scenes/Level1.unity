@@ -11420,18 +11420,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 1295869983845052336, guid: 12361413f5d14d947a4756ccfbac0c9f, type: 3}
-      propertyPath: m_SleepingMode
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 2459015900144294261, guid: 12361413f5d14d947a4756ccfbac0c9f, type: 3}
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
-    - target: {fileID: 2780025174036447778, guid: 12361413f5d14d947a4756ccfbac0c9f, type: 3}
-      propertyPath: <Animator>k__BackingField
-      value: 
-      objectReference: {fileID: 8897156749634662631}
     - target: {fileID: 2950932620915711278, guid: 12361413f5d14d947a4756ccfbac0c9f, type: 3}
       propertyPath: ui
       value: 
@@ -11440,10 +11432,6 @@ PrefabInstance:
       propertyPath: gameController
       value: 
       objectReference: {fileID: 1224184709}
-    - target: {fileID: 2950932620915711278, guid: 12361413f5d14d947a4756ccfbac0c9f, type: 3}
-      propertyPath: playerController
-      value: 
-      objectReference: {fileID: 8897156749634662622}
     - target: {fileID: 8795022998840425010, guid: 12361413f5d14d947a4756ccfbac0c9f, type: 3}
       propertyPath: m_LocalPosition.x
       value: 3.8
@@ -11505,11 +11493,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5b86a273e4c918e47ad4414ec93f0159, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!95 &8897156749634662631 stripped
-Animator:
-  m_CorrespondingSourceObject: {fileID: 5918370114230440974, guid: 12361413f5d14d947a4756ccfbac0c9f, type: 3}
-  m_PrefabInstance: {fileID: 8897156749634662594}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
