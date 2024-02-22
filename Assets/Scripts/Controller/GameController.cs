@@ -20,9 +20,13 @@ public class GameController : MonoBehaviour
     public void EndGame(bool died, float pain)
     {
         this.playerController.gameObject.SetActive(false);
-        this.timer.Stop();
         float timer = this.timer.GetTimerVal();
         int score = this.scorer.GetScore(pain, timer);
         this.ui.EndGame(win: died, timer, pain, score);
+    }
+
+    internal void StopTimer()
+    {
+        this.timer.Stop();
     }
 }

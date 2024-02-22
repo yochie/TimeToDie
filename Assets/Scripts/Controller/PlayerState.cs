@@ -56,6 +56,7 @@ public class PlayerState : MonoBehaviour
     {
         this.playerController.Disable();
         this.playerController.Animator.SetBool("dead", true);
+        this.gameController.StopTimer();
         yield return new WaitForSeconds(3);
         this.gameController.EndGame(died: died, this.currentPain);
     }
