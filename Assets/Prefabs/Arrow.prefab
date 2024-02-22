@@ -176,7 +176,7 @@ MonoBehaviour:
     m_Bits: 128
   damage: 10
   arrowBody: {fileID: 4748914602586284700}
-  moveThreshold: 0.1
+  moveThreshold: 0.5
   disableAfterSecondsImmobile: 0.2
   groundMask:
     serializedVersion: 2
