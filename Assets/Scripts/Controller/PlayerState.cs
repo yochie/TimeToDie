@@ -16,6 +16,9 @@ public class PlayerState : MonoBehaviour
     [SerializeField]
     private GameController gameController;
 
+    [SerializeField]
+    private PlayerController playerController;
+
     private float currentPain;
 
     private void Start()
@@ -34,7 +37,7 @@ public class PlayerState : MonoBehaviour
 
         if (this.health.CurrentHealth <= 0)
         {
-            this.gameController.EndGame(died: true, this.currentPain);
+            StartCoroutine(this.EndGame(died: true)); 
             return;
         }
 
@@ -44,8 +47,16 @@ public class PlayerState : MonoBehaviour
 
         if (this.currentPain >= this.maxPain)
         {
-            this.gameController.EndGame(died: false, this.currentPain);
+            StartCoroutine(this.EndGame(died: false));            
         }
 
+    }
+
+    private IEnumerator EndGame(bool died)
+    {
+        this.playerController.Disable();
+        this.playerController.Animator.SetBool("dead", true);
+        yield return new WaitForSeconds(3);
+        this.gameController.EndGame(died: died, this.currentPain);
     }
 }

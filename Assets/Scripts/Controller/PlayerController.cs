@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -12,8 +13,8 @@ public class PlayerController : MonoBehaviour
     [SerializeField]
     private Rigidbody2D playerRigidbody2D;
 
-    [SerializeField]
-    private Animator animator;
+    [field: SerializeField]
+    public Animator Animator { get; private set; }
 
     [SerializeField]
     private Mover mover;
@@ -39,9 +40,9 @@ public class PlayerController : MonoBehaviour
         //set velocity for this frame based on mover and jumper updates
         this.playerRigidbody2D.velocity = new Vector2(xVelocity, yVelocity);
 
-        this.animator.SetBool("jumping", this.jumper.IsJumping());
-        this.animator.SetBool("grounded", this.jumper.IsGrounded());
-        this.animator.SetBool("running", this.mover.IsMoving());
+        this.Animator.SetBool("jumping", this.jumper.IsJumping());
+        this.Animator.SetBool("grounded", this.jumper.IsGrounded());
+        this.Animator.SetBool("running", this.mover.IsMoving());
     }
 
     //Called by input system
@@ -51,5 +52,10 @@ public class PlayerController : MonoBehaviour
     public void OnJump(InputValue value)
     {
         this.jumper.Jump();
+    }
+
+    internal void Disable()
+    {
+        this.enabled = false;
     }
 }
