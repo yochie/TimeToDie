@@ -21,9 +21,12 @@ public class PlayerState : MonoBehaviour
 
     private float currentPain;
 
+    public bool CanTakeDamage { get; private set; }
+
     private void Start()
     {        
         this.currentPain = 0;
+        this.CanTakeDamage = true;
     }
 
     //will apply damage and then pain if character survives hit
@@ -49,12 +52,12 @@ public class PlayerState : MonoBehaviour
         {
             StartCoroutine(this.EndGame(died: false));            
         }
-
     }
 
     private IEnumerator EndGame(bool died)
     {
         this.playerController.Disable();
+        this.CanTakeDamage = false;
         this.playerController.Animator.SetBool("dead", true);
         this.gameController.StopTimer();
         yield return new WaitForSeconds(3);

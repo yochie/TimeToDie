@@ -245,7 +245,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bf520811927c1f24cbbc52b23fc7841b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerStats: {fileID: 2950932620915711278}
+  playerState: {fileID: 2950932620915711278}
   painByDamageType: {fileID: 11400000, guid: 2c4bb40960534994cbe121912f95c19b, type: 2}
 --- !u!114 &6306635591716352253
 MonoBehaviour:
@@ -466,9 +466,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   <Collider>k__BackingField: {fileID: 6995331321953915203}
-  <DefaultJumpSpeed>k__BackingField: 15
-  <MaxJumpHoldTime>k__BackingField: 0.35
-  <CoyoteTime>k__BackingField: 0.1
+  <DefaultJumpSpeed>k__BackingField: 10
+  <MaxJumpHoldTime>k__BackingField: 0.3
+  <CoyoteTime>k__BackingField: 0.15
   groundOverlapCollider: {fileID: 3819495475494984036}
   ceilingOverlapCollider: {fileID: 7219373016419829704}
   groundLayerMask:
