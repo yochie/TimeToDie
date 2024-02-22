@@ -19,6 +19,12 @@ public class UIController : MonoBehaviour
     [SerializeField]
     private TextMeshProUGUI timeDisplay;
 
+    [SerializeField]
+    private Flasher damageFlasher;
+
+    [SerializeField]
+    private ScreenShaker screenShaker;
+
     internal void SetHealth(float current, float max)
     {
         this.healthBar.SetVal((int) Math.Round(current, MidpointRounding.AwayFromZero), (int) Math.Round(max, MidpointRounding.AwayFromZero));
@@ -27,6 +33,16 @@ public class UIController : MonoBehaviour
     internal void SetPain(float current, float max)
     {
         this.painBar.SetVal((int)Math.Round(current, MidpointRounding.AwayFromZero), (int)Math.Round(max, MidpointRounding.AwayFromZero));
+    }
+
+    internal void TriggerScreenShake()
+    {
+        this.screenShaker.Trigger();
+    }
+
+    internal void TriggerDamageFlash()
+    {
+        this.damageFlasher.Trigger();
     }
 
     internal void UpdateTimer(float currentTime)
