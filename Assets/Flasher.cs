@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -24,12 +25,12 @@ public class Flasher : MonoBehaviour
     {
         float startTime = Time.time;
         float timeSinceStart = 0;
-        Color startColor = this.image.color;
+        Color flashColor = this.image.color;
         while(timeSinceStart < durationSeconds)
         {
-            Color flashColor = startColor;
             flashColor.a = this.curveMultiplier * this.flashCurve.Evaluate(timeSinceStart / durationSeconds);
             this.image.color = flashColor;
+
             timeSinceStart = Time.time - startTime;
             yield return null;
         }
