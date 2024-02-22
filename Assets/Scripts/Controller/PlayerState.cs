@@ -34,7 +34,7 @@ public class PlayerState : MonoBehaviour
     {
         this.health.CurrentHealth -= damageAmount;
         //update view
-        this.ui.SetHealth(this.health.CurrentHealth, this.health.MaxHealth);
+        this.ui.SetHealthBar(this.health.CurrentHealth, this.health.MaxHealth);
         this.ui.TriggerDamageFlash();
         this.ui.TriggerScreenShake();
 

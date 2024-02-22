@@ -25,7 +25,7 @@ public class UIController : MonoBehaviour
     [SerializeField]
     private ScreenShaker screenShaker;
 
-    internal void SetHealth(float current, float max)
+    internal void SetHealthBar(float current, float max)
     {
         this.healthBar.SetVal((int) Math.Round(current, MidpointRounding.AwayFromZero), (int) Math.Round(max, MidpointRounding.AwayFromZero));
     }

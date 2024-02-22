@@ -41,9 +41,10 @@ public class Mover : MonoBehaviour
         return this.CurrentMoveSpeed * this.movedInDirection;
     }
 
-    private void Flip(float faceDir)
+    public void Flip(float faceDir)
     {
         this.spriteRenderer.flipX = faceDir == 1 ? false : true;
+        this.previousDirection = faceDir;
     }
 
     public void MoveInDirection(float direction)
