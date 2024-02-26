@@ -26,7 +26,7 @@ public class Arrow : MonoBehaviour
     private float knockbackDurationSeconds;
 
     [SerializeField]
-    private float knockbackSpeed;
+    private Vector2 knockbackVelocity;
 
     private bool isArmed;
     private float immobileOnGroundFor;
@@ -50,7 +50,9 @@ public class Arrow : MonoBehaviour
             if (mover != null)
             {
                 float dir = collision.relativeVelocity.x > 0 ? -1 : 1;
-                mover.Knockback(this.knockbackDurationSeconds, dir, this.knockbackSpeed);
+                Vector2 knockbackWithDir = this.knockbackVelocity;
+                knockbackWithDir.x *= dir;
+                mover.Knockback(this.knockbackDurationSeconds, knockbackWithDir);
             }
 
             this.isArmed = false;

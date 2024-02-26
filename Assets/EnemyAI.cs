@@ -77,9 +77,6 @@ public class EnemyAI : MonoBehaviour
 
     private void FixedUpdate()
     {
-        float horizontalVelocity = this.mover.UpdateForFixedFrame();
-        float verticalVelocity = this.rb.velocity.y;
-        this.rb.velocity = new(horizontalVelocity, verticalVelocity);
-        
+        this.mover.UpdateForFixedFrame(jumpHeld : false);
     }
 }

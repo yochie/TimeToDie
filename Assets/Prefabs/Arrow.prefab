@@ -182,4 +182,4 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 64
   knockbackDurationSeconds: 0.5
-  knockbackSpeed: 10
+  knockbackVelocity: {x: 5, y: 30}

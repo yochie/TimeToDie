@@ -14,6 +14,12 @@ public class Mover : MonoBehaviour
     [SerializeField]
     private SpriteRenderer spriteRenderer;
 
+    [SerializeField]
+    private Jumper jumper;
+
+    [SerializeField]
+    private Rigidbody2D rb;
+
     private float currentMoveSpeed;
 
     //for flipping sprite whenever changing dir
@@ -22,8 +28,7 @@ public class Mover : MonoBehaviour
     private float movedInDirection;
 
     private float knockbackRemainingSeconds;
-    private float knockbackDirection;
-    private float knockbackSpeed;
+    private Vector2 knockbackVelocity;
 
     private void Start()
     {
@@ -33,21 +38,32 @@ public class Mover : MonoBehaviour
     }
 
     //updates tracked state and returns velocity for frame
-    public float UpdateForFixedFrame()
+    public void UpdateForFixedFrame(bool jumpHeld)
     {
-        //flip sprite
+        //flip sprite based on input
         if (this.movedInDirection != 0 && this.movedInDirection != this.previousDirection)
         {
             this.Flip(faceDir: this.movedInDirection);
         }
         this.previousDirection = this.movedInDirection;
 
-        if(knockbackRemainingSeconds > 0)
+        if (knockbackRemainingSeconds > 0)
         {
+            //let physics handle velocity during knockback
             this.knockbackRemainingSeconds -= Time.fixedDeltaTime;
-            return this.knockbackSpeed * this.knockbackDirection;
-        } else 
-            return this.currentMoveSpeed * this.movedInDirection;
+        }
+        else
+        {
+            //manually update velocity based on input
+            Vector2 previousVelocity = this.rb.velocity;
+            float xVelocity = this.currentMoveSpeed * this.movedInDirection;
+            float yVelocity;
+            if (this.jumper != null)
+                yVelocity = this.jumper.UpdateForFrame(previousVelocity.y, jumpHeld);
+            else
+                yVelocity = previousVelocity.y;
+            this.rb.velocity = new Vector2(xVelocity, yVelocity);
+        }
     }
 
     public void Flip(float faceDir)
@@ -61,12 +77,10 @@ public class Mover : MonoBehaviour
         this.movedInDirection = direction;
     }
 
-    public void Knockback(float durationSeconds, float dir, float speed)
+    public void Knockback(float durationSeconds, Vector2 knockbackVelocity)
     {
         this.knockbackRemainingSeconds = durationSeconds;
-        this.knockbackDirection = dir;
-        this.knockbackSpeed = speed;
-        Debug.Log(knockbackDirection);
+        this.rb.AddForce(knockbackVelocity, ForceMode2D.Impulse);
     }
 
     public bool IsMoving()

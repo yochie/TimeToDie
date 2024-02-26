@@ -79,7 +79,8 @@ MonoBehaviour:
   <Collider>k__BackingField: {fileID: 1553018108922005803}
   <DefaultMoveSpeed>k__BackingField: 2
   spriteRenderer: {fileID: 3362169230170676522}
-  <CurrentMoveSpeed>k__BackingField: 0
+  jumper: {fileID: 0}
+  rb: {fileID: 8676330425357256981}
 --- !u!212 &3362169230170676522
 SpriteRenderer:
   m_ObjectHideFlags: 0
