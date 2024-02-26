@@ -28,7 +28,6 @@ public class Mover : MonoBehaviour
     private float movedInDirection;
 
     private float knockbackRemainingSeconds;
-    private Vector2 knockbackVelocity;
 
     private void Start()
     {
