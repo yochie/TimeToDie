@@ -11,7 +11,7 @@ public class Arrow : MonoBehaviour
     private float damage;
 
     [SerializeField]
-    private Rigidbody2D arrowBody;
+    private Rigidbody2D rb;
 
     [SerializeField]
     private float moveThreshold;
@@ -30,11 +30,17 @@ public class Arrow : MonoBehaviour
 
     private bool isArmed;
     private float immobileOnGroundFor;
+    private Vector2 previousVelocity;
 
     private void Start()
     {
         this.isArmed = true;
         this.immobileOnGroundFor = 0;
+        this.previousVelocity = this.rb.velocity;
+    }
+    private void FixedUpdate()
+    {
+        this.previousVelocity = this.rb.velocity;
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
@@ -49,7 +55,7 @@ public class Arrow : MonoBehaviour
             Mover mover = otherObject.GetComponent<Mover>();
             if (mover != null)
             {
-                float dir = collision.relativeVelocity.x > 0 ? -1 : 1;
+                float dir = this.previousVelocity.x > 0 ? 1 : -1;
                 Vector2 knockbackWithDir = this.knockbackVelocity;
                 knockbackWithDir.x *= dir;
                 mover.Knockback(this.knockbackDurationSeconds, knockbackWithDir);
@@ -63,16 +69,16 @@ public class Arrow : MonoBehaviour
     //disarms and disables simulation when conditons are met (delay immobile on ground)
     private void Update()
     {
-        if (!this.isArmed && !this.arrowBody.simulated)
+        if (!this.isArmed && !this.rb.simulated)
             return;
 
         //checks for immobile since some threshold time, then disarm
-        if (this.arrowBody.velocity.magnitude < this.moveThreshold && this.arrowBody.IsTouchingLayers(this.groundMask)) {
+        if (this.rb.velocity.magnitude < this.moveThreshold && this.rb.IsTouchingLayers(this.groundMask)) {
             this.immobileOnGroundFor += Time.deltaTime;
             if (this.immobileOnGroundFor > this.disableAfterSecondsImmobile)
             {
                 this.isArmed = false;
-                this.arrowBody.simulated = false;
+                this.rb.simulated = false;
             }
         }
         else

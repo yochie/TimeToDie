@@ -9,7 +9,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6533607522958403225}
+  - component: {fileID: 4104300530037294597}
   - component: {fileID: 4675552584696549510}
+  - component: {fileID: 7180377189117631632}
   - component: {fileID: 81849762876199679}
   - component: {fileID: 3362169230170676522}
   - component: {fileID: 8676330425357256981}
@@ -40,6 +42,21 @@ Transform:
   - {fileID: 4791372394419170207}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &4104300530037294597
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1974017696268197903}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 50c318d045df44d4899dcfe3b137c62b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  <ContactDamage>k__BackingField: 2
+  <KnockbackDuration>k__BackingField: 0.3
+  <KnockbackForce>k__BackingField: {x: 10, y: 20}
 --- !u!114 &4675552584696549510
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -63,6 +80,23 @@ MonoBehaviour:
   obstacleLayers:
     serializedVersion: 2
     m_Bits: 4416
+  rb: {fileID: 8676330425357256981}
+--- !u!114 &7180377189117631632
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1974017696268197903}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f991dd4a97246fc4f83cd9f85272e063, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damagesLayers:
+    serializedVersion: 2
+    m_Bits: 128
+  enemyStats: {fileID: 4104300530037294597}
   rb: {fileID: 8676330425357256981}
 --- !u!114 &81849762876199679
 MonoBehaviour:

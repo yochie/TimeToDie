@@ -5,6 +5,7 @@ using UnityEngine;
 public enum DamageType
 { 
     fall, spikes,
-    arrow
+    arrow,
+    contact
 }
 

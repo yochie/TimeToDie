@@ -80,7 +80,7 @@ public class Mover : MonoBehaviour
     public void Knockback(float durationSeconds, Vector2 knockbackVelocity)
     {
         this.knockbackRemainingSeconds = durationSeconds;
-        this.rb.AddForce(knockbackVelocity, ForceMode2D.Impulse);
+        this.rb.velocity = knockbackVelocity;
     }
 
     public bool IsMoving()

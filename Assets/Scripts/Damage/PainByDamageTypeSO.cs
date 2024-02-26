@@ -11,9 +11,11 @@ public class PainByDamageTypeSO : ScriptableObject
     [SerializeField]
     private float spikePainRatio;
 
-
     [SerializeField]
     private float arrowPainRatio;
+
+    [SerializeField]
+    private float contactPainRatio;
 
     public float GetPainForDamageType(DamageType type)
     {
@@ -25,6 +27,8 @@ public class PainByDamageTypeSO : ScriptableObject
                 return this.spikePainRatio;
             case DamageType.arrow:
                 return this.arrowPainRatio;
+            case DamageType.contact:
+                return this.contactPainRatio;
         }
         return 1;
     }

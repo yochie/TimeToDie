@@ -175,11 +175,11 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 128
   damage: 10
-  arrowBody: {fileID: 4748914602586284700}
+  rb: {fileID: 4748914602586284700}
   moveThreshold: 0.5
   disableAfterSecondsImmobile: 0.2
   groundMask:
     serializedVersion: 2
     m_Bits: 64
-  knockbackDurationSeconds: 0.5
-  knockbackVelocity: {x: 5, y: 30}
+  knockbackDurationSeconds: 0.3
+  knockbackVelocity: {x: 10, y: 20}

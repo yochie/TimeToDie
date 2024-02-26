@@ -1580,6 +1580,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7180377189117631632, guid: 25bbc96257a701242879358cbd9d00d1, type: 3}
+      propertyPath: enemyStats
+      value: 
+      objectReference: {fileID: 836116831}
     - target: {fileID: 8676330425357256981, guid: 25bbc96257a701242879358cbd9d00d1, type: 3}
       propertyPath: m_Mass
       value: 6
@@ -1589,6 +1593,17 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 25bbc96257a701242879358cbd9d00d1, type: 3}
+--- !u!114 &836116831 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4104300530037294597, guid: 25bbc96257a701242879358cbd9d00d1, type: 3}
+  m_PrefabInstance: {fileID: 836116830}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 50c318d045df44d4899dcfe3b137c62b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &838547283
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -9443,7 +9458,7 @@ PlatformEffector2D:
   m_SurfaceArc: 180
   m_UseSideFriction: 0
   m_UseSideBounce: 0
-  m_SideArc: 35.9
+  m_SideArc: 35
 --- !u!1 &979552264
 GameObject:
   m_ObjectHideFlags: 0
@@ -10324,6 +10339,17 @@ BoxCollider2D:
   m_CorrespondingSourceObject: {fileID: 142409909585296160, guid: 8566190004defb1479d431456a452dc2, type: 3}
   m_PrefabInstance: {fileID: 86788318}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1507418488 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4104300530037294597, guid: 25bbc96257a701242879358cbd9d00d1, type: 3}
+  m_PrefabInstance: {fileID: 6334425855762149520}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 50c318d045df44d4899dcfe3b137c62b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &1572997567 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 551044672054999783, guid: 8566190004defb1479d431456a452dc2, type: 3}
@@ -10979,26 +11005,6 @@ CompositeCollider2D:
   m_ColliderPaths:
   - m_Collider: {fileID: 2103733814}
     m_ColliderPaths: []
-  - m_Collider: {fileID: 1198999161}
-    m_ColliderPaths:
-    - - X: -210000000
-        Y: -170000000
-      - X: -220000000
-        Y: -170000000
-      - X: -220000000
-        Y: -180000000
-      - X: -210000000
-        Y: -180000000
-  - m_Collider: {fileID: 2021253096}
-    m_ColliderPaths:
-    - - X: -210000000
-        Y: -180000000
-      - X: -220000000
-        Y: -180000000
-      - X: -220000000
-        Y: -190000000
-      - X: -210000000
-        Y: -190000000
   - m_Collider: {fileID: 1087562153}
     m_ColliderPaths:
     - - X: -90000000
@@ -11019,6 +11025,36 @@ CompositeCollider2D:
         Y: -190000000
       - X: -30000000
         Y: -190000000
+  - m_Collider: {fileID: 1198999161}
+    m_ColliderPaths:
+    - - X: -210000000
+        Y: -170000000
+      - X: -220000000
+        Y: -170000000
+      - X: -220000000
+        Y: -180000000
+      - X: -210000000
+        Y: -180000000
+  - m_Collider: {fileID: 539058927}
+    m_ColliderPaths:
+    - - X: -340000000
+        Y: -180000000
+      - X: -350000000
+        Y: -180000000
+      - X: -350000000
+        Y: -190000000
+      - X: -340000000
+        Y: -190000000
+  - m_Collider: {fileID: 2021253096}
+    m_ColliderPaths:
+    - - X: -210000000
+        Y: -180000000
+      - X: -220000000
+        Y: -180000000
+      - X: -220000000
+        Y: -190000000
+      - X: -210000000
+        Y: -190000000
   - m_Collider: {fileID: 1138852416}
     m_ColliderPaths:
     - - X: -340000000
@@ -11029,15 +11065,15 @@ CompositeCollider2D:
         Y: -180000000
       - X: -340000000
         Y: -180000000
-  - m_Collider: {fileID: 1572997569}
+  - m_Collider: {fileID: 1631991679}
     m_ColliderPaths:
-    - - X: 350000000
+    - - X: 230000000
         Y: -180000000
-      - X: 340000000
+      - X: 220000000
         Y: -180000000
-      - X: 340000000
+      - X: 220000000
         Y: -190000000
-      - X: 350000000
+      - X: 230000000
         Y: -190000000
   - m_Collider: {fileID: 197134446}
     m_ColliderPaths:
@@ -11049,16 +11085,16 @@ CompositeCollider2D:
         Y: -180000000
       - X: 230000000
         Y: -180000000
-  - m_Collider: {fileID: 1578134201}
+  - m_Collider: {fileID: 2095981022}
     m_ColliderPaths:
-    - - X: 100000000
-        Y: -180000000
-      - X: 90000000
-        Y: -180000000
-      - X: 90000000
-        Y: -190000000
-      - X: 100000000
-        Y: -190000000
+    - - X: 170000000
+        Y: 70000000
+      - X: 160000000
+        Y: 70000000
+      - X: 160000000
+        Y: 60000000
+      - X: 170000000
+        Y: 60000000
   - m_Collider: {fileID: 1721170623}
     m_ColliderPaths:
     - - X: 20000000
@@ -11079,36 +11115,26 @@ CompositeCollider2D:
         Y: -180000000
       - X: 350000000
         Y: -180000000
-  - m_Collider: {fileID: 1631991679}
+  - m_Collider: {fileID: 1578134201}
     m_ColliderPaths:
-    - - X: 230000000
+    - - X: 100000000
         Y: -180000000
-      - X: 220000000
+      - X: 90000000
         Y: -180000000
-      - X: 220000000
+      - X: 90000000
         Y: -190000000
-      - X: 230000000
+      - X: 100000000
         Y: -190000000
-  - m_Collider: {fileID: 539058927}
+  - m_Collider: {fileID: 1572997569}
     m_ColliderPaths:
-    - - X: -340000000
+    - - X: 350000000
         Y: -180000000
-      - X: -350000000
+      - X: 340000000
         Y: -180000000
-      - X: -350000000
+      - X: 340000000
         Y: -190000000
-      - X: -340000000
+      - X: 350000000
         Y: -190000000
-  - m_Collider: {fileID: 2095981022}
-    m_ColliderPaths:
-    - - X: 170000000
-        Y: 70000000
-      - X: 160000000
-        Y: 70000000
-      - X: 160000000
-        Y: 60000000
-      - X: 170000000
-        Y: 60000000
   m_CompositePaths:
     m_Paths:
     - - {x: 16.999971, y: 6}
@@ -11578,6 +11604,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7180377189117631632, guid: 25bbc96257a701242879358cbd9d00d1, type: 3}
+      propertyPath: enemyStats
+      value: 
+      objectReference: {fileID: 1507418488}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
