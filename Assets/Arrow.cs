@@ -22,6 +22,12 @@ public class Arrow : MonoBehaviour
     [SerializeField]
     private LayerMask groundMask;
 
+    [SerializeField]
+    private float knockbackDurationSeconds;
+
+    [SerializeField]
+    private float knockbackSpeed;
+
     private bool isArmed;
     private float immobileOnGroundFor;
 
@@ -37,10 +43,16 @@ public class Arrow : MonoBehaviour
         if (this.isArmed && dealsDamageToLayers.Contains(otherObject.layer))
         {
             DamageHandler damageHandler = otherObject.GetComponent<DamageHandler>();
-            if (damageHandler == null)
-                return;
-            
-            damageHandler.TakeDamage(this.damage, DamageType.arrow);
+            if (damageHandler != null)
+                damageHandler.TakeDamage(this.damage, DamageType.arrow);
+
+            Mover mover = otherObject.GetComponent<Mover>();
+            if (mover != null)
+            {
+                float dir = collision.relativeVelocity.x > 0 ? -1 : 1;
+                mover.Knockback(this.knockbackDurationSeconds, dir, this.knockbackSpeed);
+            }
+
             this.isArmed = false;
         }
     }

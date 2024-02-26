@@ -32,7 +32,7 @@ public class PlayerController : MonoBehaviour
     private void FixedUpdate()
     {
         //allow player input to control horizontal velocity
-        float xVelocity = this.mover.UpdateForFrame();
+        float xVelocity = this.mover.UpdateForFixedFrame();
 
         //let physics handle vertical velocity unless jumping
         float yVelocity = this.jumper.UpdateForFrame(this.playerRigidbody2D.velocity.y, jumpHeld: this.jumpAction.IsPressed());

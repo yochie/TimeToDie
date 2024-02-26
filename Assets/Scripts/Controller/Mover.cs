@@ -14,22 +14,26 @@ public class Mover : MonoBehaviour
     [SerializeField]
     private SpriteRenderer spriteRenderer;
 
-    [field: SerializeField]
-    public float CurrentMoveSpeed { get; set; }
+    private float currentMoveSpeed;
 
     //for flipping sprite whenever changing dir
     private float previousDirection;
 
     private float movedInDirection;
 
+    private float knockbackRemainingSeconds;
+    private float knockbackDirection;
+    private float knockbackSpeed;
+
     private void Start()
     {
-        this.CurrentMoveSpeed = this.DefaultMoveSpeed;
+        this.currentMoveSpeed = this.DefaultMoveSpeed;
         this.movedInDirection = 0;
         this.previousDirection = 0;
     }
 
-    public float UpdateForFrame()
+    //updates tracked state and returns velocity for frame
+    public float UpdateForFixedFrame()
     {
         //flip sprite
         if (this.movedInDirection != 0 && this.movedInDirection != this.previousDirection)
@@ -38,7 +42,12 @@ public class Mover : MonoBehaviour
         }
         this.previousDirection = this.movedInDirection;
 
-        return this.CurrentMoveSpeed * this.movedInDirection;
+        if(knockbackRemainingSeconds > 0)
+        {
+            this.knockbackRemainingSeconds -= Time.fixedDeltaTime;
+            return this.knockbackSpeed * this.knockbackDirection;
+        } else 
+            return this.currentMoveSpeed * this.movedInDirection;
     }
 
     public void Flip(float faceDir)
@@ -52,6 +61,14 @@ public class Mover : MonoBehaviour
         this.movedInDirection = direction;
     }
 
+    public void Knockback(float durationSeconds, float dir, float speed)
+    {
+        this.knockbackRemainingSeconds = durationSeconds;
+        this.knockbackDirection = dir;
+        this.knockbackSpeed = speed;
+        Debug.Log(knockbackDirection);
+    }
+
     public bool IsMoving()
     {
         return this.movedInDirection != 0;
@@ -59,6 +76,6 @@ public class Mover : MonoBehaviour
 
     internal void MultiplySpeed(float speedMultiplier)
     {
-        this.CurrentMoveSpeed = this.CurrentMoveSpeed * speedMultiplier;
+        this.currentMoveSpeed = this.currentMoveSpeed * speedMultiplier;
     }
 }
