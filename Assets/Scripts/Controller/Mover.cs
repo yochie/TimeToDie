@@ -20,6 +20,12 @@ public class Mover : MonoBehaviour
     [SerializeField]
     private Rigidbody2D rb;
 
+    [SerializeField]
+    private PhysicsMaterial2D kbMaterial;
+
+    [SerializeField]
+    private PhysicsMaterial2D normalMaterial;
+
     private float currentMoveSpeed;
 
     //for flipping sprite whenever changing dir
@@ -53,6 +59,8 @@ public class Mover : MonoBehaviour
         }
         else
         {
+            if (this.rb.sharedMaterial != this.normalMaterial)
+                this.rb.sharedMaterial = this.normalMaterial;
             //manually update velocity based on input
             Vector2 previousVelocity = this.rb.velocity;
             float xVelocity = this.currentMoveSpeed * this.movedInDirection;
@@ -80,6 +88,7 @@ public class Mover : MonoBehaviour
     {
         this.knockbackRemainingSeconds = durationSeconds;
         this.rb.velocity = knockbackVelocity;
+        this.rb.sharedMaterial = this.kbMaterial;
     }
 
     public bool IsMoving()

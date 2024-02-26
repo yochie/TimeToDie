@@ -115,6 +115,8 @@ MonoBehaviour:
   spriteRenderer: {fileID: 3362169230170676522}
   jumper: {fileID: 0}
   rb: {fileID: 8676330425357256981}
+  kbMaterial: {fileID: 6200000, guid: eaab58cc6cfb3cf409c64a9fb0c53f47, type: 2}
+  normalMaterial: {fileID: 6200000, guid: eaab58cc6cfb3cf409c64a9fb0c53f47, type: 2}
 --- !u!212 &3362169230170676522
 SpriteRenderer:
   m_ObjectHideFlags: 0
