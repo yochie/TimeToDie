@@ -60,7 +60,7 @@ public class PlayerState : MonoBehaviour
         this.CanTakeDamage = false;
         this.playerController.Animator.SetBool("dead", true);
         this.gameController.StopTimer();
-        yield return new WaitForSeconds(3);
+        yield return new WaitForSeconds(2);
         this.gameController.EndGame(died: died, this.currentPain);
     }
 }

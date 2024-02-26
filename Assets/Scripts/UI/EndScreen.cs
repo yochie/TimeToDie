@@ -19,6 +19,12 @@ public class EndScreen : MonoBehaviour
     [SerializeField]
     private TextMeshProUGUI score;
 
+    [SerializeField]
+    private CanvasGroup canvasGroup;
+    
+    [SerializeField]
+    private float fadeInDurationSeconds;
+
     internal void Display(bool win, float timerSeconds, int pain, int score)
     {
         this.header.text = win ? "Congrats, you died." : "Its too much to handle. You live to die another day.";
@@ -26,5 +32,17 @@ public class EndScreen : MonoBehaviour
         this.pain.text = string.Format("Pain : {0} dols", pain);
         this.score.text = string.Format("Score : {0} %", win ? score : 0);
         this.gameObject.SetActive(true);
+        this.StartCoroutine(FadeInCoroutine());
+    }
+
+    private IEnumerator FadeInCoroutine()
+    {
+        float ellapsedSeconds = 0;
+        while (ellapsedSeconds < this.fadeInDurationSeconds)
+        {
+            this.canvasGroup.alpha = Mathf.Lerp(0, 1, ellapsedSeconds / this.fadeInDurationSeconds);
+            ellapsedSeconds += Time.deltaTime;
+            yield return null;
+        }
     }
 }
