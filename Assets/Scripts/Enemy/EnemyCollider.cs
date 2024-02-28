@@ -26,20 +26,32 @@ public class EnemyCollider : MonoBehaviour
         this.previousVelocity = this.rb.velocity;
     }
 
-    private void OnCollisionEnter2D(Collision2D other)
+    public void OnTriggerEnter2D(Collider2D other)
     {
+        Debug.Log("triggered");
         if (this.damagesLayers.Contains(other.gameObject.layer))
         {
-            DamageHandler damageHandler = other.gameObject.GetComponent<DamageHandler>();
+            //if colliding with hurbox instead of main object, grab main object from hurtbox property
+            HurtBox hb = other.GetComponent<HurtBox>();
+            GameObject otherObject;
+            if (hb != null)
+                otherObject = hb.HurtboxFor;
+            else
+                otherObject = other.gameObject;
+
+
+            Debug.Log("dmg");
+
+            DamageHandler damageHandler = otherObject.GetComponent<DamageHandler>();
             if(damageHandler != null)
             {
                 damageHandler.TakeDamage(this.enemyStats.ContactDamage, DamageType.contact);
             }
 
-            Mover mover = other.gameObject.GetComponent<Mover>();
+            Mover mover = otherObject.GetComponent<Mover>();
             if(mover != null)
             {
-                float dir = this.transform.position.x - other.transform.position.x > 0 ? -1 : 1;
+                float dir = this.transform.position.x - otherObject.transform.position.x > 0 ? -1 : 1;
                 Vector2 knockBackForceWithDir = this.enemyStats.KnockbackForce;
                 knockBackForceWithDir.x *= dir;
                 mover.Knockback(this.enemyStats.KnockbackDuration, knockBackForceWithDir);

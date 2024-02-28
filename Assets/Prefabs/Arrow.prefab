@@ -9,10 +9,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3610099116938330739}
+  - component: {fileID: -6506134930722092222}
   - component: {fileID: 3590680951409365034}
   - component: {fileID: 4748914602586284700}
   - component: {fileID: 3154473868554099332}
-  - component: {fileID: -6506134930722092222}
   m_Layer: 11
   m_Name: Arrow
   m_TagString: Untagged
@@ -35,6 +35,32 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &-6506134930722092222
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4484193957335913442}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5cb4e58f86eb91d4aa429120a96d2c8f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dealsDamageToLayers:
+    serializedVersion: 2
+    m_Bits: 4224
+  damage: 10
+  minVelocityForDamage: 3
+  rb: {fileID: 4748914602586284700}
+  spriteRenderer: {fileID: 3590680951409365034}
+  moveThreshold: 0.5
+  disableAfterSecondsImmobile: 0.2
+  groundMask:
+    serializedVersion: 2
+    m_Bits: 64
+  knockbackDurationSeconds: 0.3
+  knockbackVelocity: {x: 10, y: 20}
 --- !u!212 &3590680951409365034
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -159,28 +185,3 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.43150645, y: 0.06122636}
   m_EdgeRadius: 0
---- !u!114 &-6506134930722092222
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4484193957335913442}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5cb4e58f86eb91d4aa429120a96d2c8f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  dealsDamageToLayers:
-    serializedVersion: 2
-    m_Bits: 128
-  damage: 10
-  rb: {fileID: 4748914602586284700}
-  spriteRenderer: {fileID: 3590680951409365034}
-  moveThreshold: 0.5
-  disableAfterSecondsImmobile: 0.2
-  groundMask:
-    serializedVersion: 2
-    m_Bits: 64
-  knockbackDurationSeconds: 0.3
-  knockbackVelocity: {x: 10, y: 20}

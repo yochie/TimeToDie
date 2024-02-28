@@ -23,8 +23,8 @@ public class Attacker : MonoBehaviour
             Mover mover = other.GetComponent<Mover>();
             if(mover != null)
             {
-                Vector2 kbDir = this.transform.position.x - other.transform.position.x > 0 ? Vector2.left : Vector2.right;
-                mover.Knockback(this.knockbackDurationSeconds, this.knockbackVelocity * kbDir);
+                float kbDir = this.transform.position.x - other.transform.position.x > 0 ? -1 : 1;
+                mover.Knockback(this.knockbackDurationSeconds, new Vector2(this.knockbackVelocity.x * kbDir, this.knockbackVelocity.y));
             }
 
             Arrow arrow = other.GetComponent<Arrow>();

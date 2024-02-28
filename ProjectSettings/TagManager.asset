@@ -14,12 +14,12 @@ TagManager:
   - Ground
   - Player
   - Spikes
-  - PlayerTriggers
+  - OverlapChecks
   - TrapTriggers
   - Arrows
   - Enemies
   - Hitboxes
-  - 
+  - Hurtboxes
   - 
   - 
   - 
@@ -40,6 +40,9 @@ TagManager:
   m_SortingLayers:
   - name: back
     uniqueID: 2426884619
+    locked: 0
+  - name: ennemies
+    uniqueID: 69304721
     locked: 0
   - name: Default
     uniqueID: 0

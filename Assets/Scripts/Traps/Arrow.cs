@@ -11,6 +11,9 @@ public class Arrow : MonoBehaviour
     private float damage;
 
     [SerializeField]
+    private float minVelocityForDamage;
+
+    [SerializeField]
     private Rigidbody2D rb;
 
     [SerializeField]
@@ -52,17 +55,20 @@ public class Arrow : MonoBehaviour
         GameObject otherObject = collision.gameObject;
         if (this.isArmed && dealsDamageToLayers.Contains(otherObject.layer))
         {
-            DamageHandler damageHandler = otherObject.GetComponent<DamageHandler>();
-            if (damageHandler != null)
-                damageHandler.TakeDamage(this.damage, DamageType.arrow);
-
-            Mover mover = otherObject.GetComponent<Mover>();
-            if (mover != null)
+            if (this.rb.velocity.magnitude > this.minVelocityForDamage)
             {
-                float dir = this.previousVelocity.x > 0 ? 1 : -1;
-                Vector2 knockbackWithDir = this.knockbackVelocity;
-                knockbackWithDir.x *= dir;
-                mover.Knockback(this.knockbackDurationSeconds, knockbackWithDir);
+                DamageHandler damageHandler = otherObject.GetComponent<DamageHandler>();
+                if (damageHandler != null)
+                    damageHandler.TakeDamage(this.damage, DamageType.arrow);
+
+                Mover mover = otherObject.GetComponent<Mover>();
+                if (mover != null)
+                {
+                    float dir = this.previousVelocity.x > 0 ? 1 : -1;
+                    Vector2 knockbackWithDir = this.knockbackVelocity;
+                    knockbackWithDir.x *= dir;
+                    mover.Knockback(this.knockbackDurationSeconds, knockbackWithDir);
+                }
             }
 
             this.isArmed = false;
