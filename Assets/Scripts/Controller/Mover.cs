@@ -84,6 +84,11 @@ public class Mover : MonoBehaviour
         this.movedInDirection = direction;
     }
 
+    public void Jump()
+    {
+        this.jumper.Jump();
+    }
+
     public void Knockback(float durationSeconds, Vector2 knockbackVelocity)
     {
         this.knockbackRemainingSeconds = durationSeconds;

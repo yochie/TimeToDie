@@ -14,6 +14,9 @@ public class Arrow : MonoBehaviour
     private Rigidbody2D rb;
 
     [SerializeField]
+    private SpriteRenderer spriteRenderer;
+
+    [SerializeField]
     private float moveThreshold;
 
     [SerializeField]
@@ -38,6 +41,7 @@ public class Arrow : MonoBehaviour
         this.immobileOnGroundFor = 0;
         this.previousVelocity = this.rb.velocity;
     }
+
     private void FixedUpdate()
     {
         this.previousVelocity = this.rb.velocity;
@@ -65,7 +69,6 @@ public class Arrow : MonoBehaviour
         }
     }
 
-
     //disarms and disables simulation when conditons are met (delay immobile on ground)
     private void Update()
     {
@@ -85,5 +88,11 @@ public class Arrow : MonoBehaviour
         {
             this.immobileOnGroundFor = 0;
         }
+    }
+
+    internal void Deflect()
+    {
+        this.spriteRenderer.flipX = !this.spriteRenderer.flipX;
+        this.rb.velocity = new Vector2(this.rb.velocity.x * -1, this.rb.velocity.y);
     }
 }

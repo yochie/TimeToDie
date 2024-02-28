@@ -19,7 +19,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &3610099116938330739
 Transform:
   m_ObjectHideFlags: 0
@@ -176,6 +176,7 @@ MonoBehaviour:
     m_Bits: 128
   damage: 10
   rb: {fileID: 4748914602586284700}
+  spriteRenderer: {fileID: 3590680951409365034}
   moveThreshold: 0.5
   disableAfterSecondsImmobile: 0.2
   groundMask:

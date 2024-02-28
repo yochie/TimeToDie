@@ -21,7 +21,7 @@ public class PlayerController : MonoBehaviour
 
     [SerializeField]
     private Jumper jumper;
-
+    
     private InputAction jumpAction;
     private bool attacking;
 
@@ -34,7 +34,10 @@ public class PlayerController : MonoBehaviour
     {
         //allow player input to control horizontal velocity
         this.mover.UpdateForFixedFrame(jumpHeld: this.jumpAction.IsPressed());
+    }
 
+    private void Update()
+    {
         this.Animator.SetBool("jumping", this.jumper.IsJumping());
         this.Animator.SetBool("grounded", this.jumper.IsGrounded());
         this.Animator.SetBool("running", this.mover.IsMoving());
@@ -47,13 +50,18 @@ public class PlayerController : MonoBehaviour
     //Called by input system
     public void OnJump(InputValue value)
     {
-        this.jumper.Jump();
+        this.mover.Jump();
     }
 
     //Called by input system
+    //note : attack animation needs to have looping enabled in case this is called on same frame attack ends
+    //otherwise you get stuck in attack animation
     public void OnFire(InputValue value)
     {
-        this.attacking = true;
+        if (!this.attacking)
+        {
+            this.attacking = true;
+        }        
     }
 
     public void OnEndAttack()
