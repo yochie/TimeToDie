@@ -11742,6 +11742,22 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 2780025174036447778, guid: 12361413f5d14d947a4756ccfbac0c9f, type: 3}
+      propertyPath: attackAnimationMaxDuration
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2780025174036447778, guid: 12361413f5d14d947a4756ccfbac0c9f, type: 3}
+      propertyPath: attackAnimationMinDuration
+      value: 0.7
+      objectReference: {fileID: 0}
+    - target: {fileID: 2780025174036447778, guid: 12361413f5d14d947a4756ccfbac0c9f, type: 3}
+      propertyPath: attackContinueIntervalSeconds
+      value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2780025174036447778, guid: 12361413f5d14d947a4756ccfbac0c9f, type: 3}
+      propertyPath: attackContinueIntervalMinSeconds
+      value: 0.75
+      objectReference: {fileID: 0}
     - target: {fileID: 2950932620915711278, guid: 12361413f5d14d947a4756ccfbac0c9f, type: 3}
       propertyPath: ui
       value: 

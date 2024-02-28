@@ -8,7 +8,7 @@ using UnityEngine.InputSystem;
 public class Jumper : MonoBehaviour
 {
     [field: SerializeField]
-    public Collider2D Collider { get; private set; }
+    public Collider2D MainCollider { get; private set; }
 
     [field: SerializeField]
     public int DefaultJumpSpeed { get; private set; }

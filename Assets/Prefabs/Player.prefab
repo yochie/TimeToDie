@@ -214,6 +214,8 @@ MonoBehaviour:
   playerInput: {fileID: 8242729820826645029}
   playerRigidbody2D: {fileID: 1295869983845052336}
   <Animator>k__BackingField: {fileID: 5918370114230440974}
+  attackContinueIntervalMinSeconds: 0
+  attackContinueIntervalMaxSeconds: 0
   mover: {fileID: 2586879307783661404}
   jumper: {fileID: 8984784990643144053}
 --- !u!114 &2950932620915711278
@@ -293,7 +295,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 24f4dfe20a7850f478ed476a31df3456, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  <Collider>k__BackingField: {fileID: 6995331321953915203}
+  <MainCollider>k__BackingField: {fileID: 6995331321953915203}
   <DefaultJumpSpeed>k__BackingField: 10
   <MaxJumpHoldTime>k__BackingField: 0.3
   <CoyoteTime>k__BackingField: 0.15

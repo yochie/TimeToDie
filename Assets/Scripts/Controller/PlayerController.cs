@@ -23,6 +23,7 @@ public class PlayerController : MonoBehaviour
     private Jumper jumper;
 
     private InputAction jumpAction;
+    private bool attacking;
 
     private void Start()
     {
@@ -37,6 +38,7 @@ public class PlayerController : MonoBehaviour
         this.Animator.SetBool("jumping", this.jumper.IsJumping());
         this.Animator.SetBool("grounded", this.jumper.IsGrounded());
         this.Animator.SetBool("running", this.mover.IsMoving());
+        this.Animator.SetBool("attacking", this.attacking);
     }
 
     //Called by input system
@@ -46,6 +48,17 @@ public class PlayerController : MonoBehaviour
     public void OnJump(InputValue value)
     {
         this.jumper.Jump();
+    }
+
+    //Called by input system
+    public void OnFire(InputValue value)
+    {
+        this.attacking = true;
+    }
+
+    public void OnEndAttack()
+    {
+        this.attacking = false;
     }
 
     internal void Disable()
