@@ -15,6 +15,9 @@ public class Mover : MonoBehaviour
     private Jumper jumper;
 
     [SerializeField]
+    private Attacker attacker;
+
+    [SerializeField]
     private Rigidbody2D rb;
 
     [SerializeField]
@@ -93,6 +96,8 @@ public class Mover : MonoBehaviour
     {
         this.spriteRenderer.flipX = faceDir == 1 ? false : true;
         this.previousDirection = faceDir;
+        if (this.attacker != null)
+            this.attacker.Flip(faceDir);
     }
 
     public void MoveInDirection(float direction)

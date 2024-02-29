@@ -34,4 +34,11 @@ public class Attacker : MonoBehaviour
             }
         }
     }
+
+    public void Flip(float faceDir)
+    {
+        Vector3 flippedScale = this.transform.localScale;
+        flippedScale.x = faceDir;
+        this.transform.localScale = flippedScale;
+    }
 }
