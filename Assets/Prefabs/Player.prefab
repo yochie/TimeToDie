@@ -366,9 +366,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   <DefaultMoveSpeed>k__BackingField: 15
-  spriteRenderer: {fileID: 0}
+  animatedSprite: {fileID: 5601432457136444290}
+  fixedSprite: {fileID: 0}
   jumper: {fileID: 8984784990643144053}
-  attacker: {fileID: 2401224050268171738}
   rb: {fileID: 1295869983845052336}
   kbMaterial: {fileID: 6200000, guid: fad5c9d3de7de4143a31210d8c62018a, type: 2}
   normalMaterial: {fileID: 6200000, guid: ee542b9fa173b2d41bb32e0d61c3e412, type: 2}
@@ -535,6 +535,7 @@ GameObject:
   - component: {fileID: 6133863076497144260}
   - component: {fileID: 2662083074898028450}
   - component: {fileID: 5267368356116798491}
+  - component: {fileID: 5601432457136444290}
   m_Layer: 7
   m_Name: PlayerSprite
   m_TagString: Untagged
@@ -631,6 +632,22 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &5601432457136444290
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6414992083371476784}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 872cf86f5fd246c4c927f75d11cca824, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerController: {fileID: 2780025174036447778}
+  enemyController: {fileID: 0}
+  forPlayer: 1
+  defaultFacingRight: 1
 --- !u!1001 &5005633929337072150
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -703,17 +720,6 @@ PrefabInstance:
       insertIndex: -1
       addedObject: {fileID: 5662223252441749582}
   m_SourcePrefab: {fileID: 100100000, guid: c627491d703643e41a40c44db2dfc31d, type: 3}
---- !u!114 &2401224050268171738 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 7216254261734967244, guid: c627491d703643e41a40c44db2dfc31d, type: 3}
-  m_PrefabInstance: {fileID: 5005633929337072150}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8479042006433940302}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 327df8147b569bd4bab7b97bfb668d44, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!4 &6569240749535005672 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2187962313024823806, guid: c627491d703643e41a40c44db2dfc31d, type: 3}

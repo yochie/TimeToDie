@@ -5,7 +5,7 @@ using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.InputSystem;
 
-public class PlayerController : MonoBehaviour
+public class PlayerController : MonoBehaviour, IAnimatedSpriteController
 {
     [SerializeField]
     private PlayerInput playerInput;
@@ -39,7 +39,7 @@ public class PlayerController : MonoBehaviour
     private void Update()
     {
         this.Animator.SetBool("jumping", this.jumper.IsJumping());
-        this.Animator.SetBool("grounded", this.jumper.IsGrounded());
+        this.Animator.SetBool("grounded", this.mover.IsGrounded());
         this.Animator.SetBool("running", this.mover.IsMoving());
         this.Animator.SetBool("attacking", this.attacking);
     }

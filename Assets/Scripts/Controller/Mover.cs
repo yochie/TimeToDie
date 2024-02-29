@@ -129,6 +129,14 @@ public class Mover : MonoBehaviour
         return this.movedInDirection != 0;
     }
 
+    public bool IsGrounded()
+    {
+        if (this.jumper != null)
+            return this.jumper.IsGrounded();
+        else
+            return true;
+    }
+
     internal void MultiplySpeed(float speedMultiplier)
     {
         this.currentMoveSpeed = this.currentMoveSpeed * speedMultiplier;
