@@ -181,7 +181,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   <DefaultMoveSpeed>k__BackingField: 2
-  spriteRenderer: {fileID: 3362169230170676522}
+  animatedSprite: {fileID: 0}
+  fixedSprite: {fileID: 3362169230170676522}
   jumper: {fileID: 8996003700433853704}
   rb: {fileID: 8676330425357256981}
   kbMaterial: {fileID: 6200000, guid: 7b0c8e492a201224c8d14d8e6920a5d7, type: 2}

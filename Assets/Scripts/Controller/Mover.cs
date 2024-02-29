@@ -9,13 +9,13 @@ public class Mover : MonoBehaviour
     public float DefaultMoveSpeed { get; private set; }
 
     [SerializeField]
-    private SpriteRenderer spriteRenderer;
+    private AnimatedSprite animatedSprite;
+
+    [SerializeField]
+    private SpriteRenderer fixedSprite;
 
     [SerializeField]
     private Jumper jumper;
-
-    [SerializeField]
-    private Attacker attacker;
 
     [SerializeField]
     private Rigidbody2D rb;
@@ -94,10 +94,12 @@ public class Mover : MonoBehaviour
 
     public void Flip(float faceDir)
     {
-        this.spriteRenderer.flipX = faceDir == 1 ? false : true;
+        //assumes fixed sprite face right
+        if (this.animatedSprite != null)
+            this.animatedSprite.Flip(faceDir);
+        else if (this.fixedSprite != null)
+            this.fixedSprite.flipX = faceDir > 0 ? false : true;
         this.previousDirection = faceDir;
-        if (this.attacker != null)
-            this.attacker.Flip(faceDir);
     }
 
     public void MoveInDirection(float direction)
