@@ -1545,6 +1545,22 @@ PrefabInstance:
       propertyPath: m_Name
       value: Enemy (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 2236860509541212362, guid: 25bbc96257a701242879358cbd9d00d1, type: 3}
+      propertyPath: curve.m_Curve.Array.data[0].value
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2236860509541212362, guid: 25bbc96257a701242879358cbd9d00d1, type: 3}
+      propertyPath: curve.m_Curve.Array.data[1].value
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2236860509541212362, guid: 25bbc96257a701242879358cbd9d00d1, type: 3}
+      propertyPath: curve.m_Curve.Array.data[1].inSlope
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2236860509541212362, guid: 25bbc96257a701242879358cbd9d00d1, type: 3}
+      propertyPath: curve.m_Curve.Array.data[1].outSlope
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4558094475850901290, guid: 25bbc96257a701242879358cbd9d00d1, type: 3}
       propertyPath: m_FlipX
       value: 0
@@ -1596,6 +1612,10 @@ PrefabInstance:
     - target: {fileID: 7839226479961765594, guid: 25bbc96257a701242879358cbd9d00d1, type: 3}
       propertyPath: m_LocalScale.x
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8161614810071028106, guid: 25bbc96257a701242879358cbd9d00d1, type: 3}
+      propertyPath: m_Layer
+      value: 9
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
