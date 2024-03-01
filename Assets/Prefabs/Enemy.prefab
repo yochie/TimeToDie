@@ -150,7 +150,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 50c318d045df44d4899dcfe3b137c62b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  <ContactDamage>k__BackingField: 2
+  <ContactDamage>k__BackingField: 100
   <KnockbackDuration>k__BackingField: 0.3
   <KnockbackForce>k__BackingField: {x: 10, y: 20}
 --- !u!114 &4675552584696549510

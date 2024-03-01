@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 using System.Globalization;
+using UnityEngine.SceneManagement;
 
 public class EndScreen : MonoBehaviour
 {
@@ -27,7 +28,7 @@ public class EndScreen : MonoBehaviour
 
     internal void Display(bool win, float timerSeconds, int pain, int score)
     {
-        this.header.text = win ? "Congrats, you died." : "Its too much to handle. You live to die another day.";
+        this.header.text = win ? "Congrats, you died." : "The pain... its too much to handle.";
         this.time.text = string.Format("Time : {0} seconds", timerSeconds.ToString("F", CultureInfo.InvariantCulture));
         this.pain.text = string.Format("Pain : {0} dols", pain);
         this.score.text = string.Format("Score : {0} %", win ? score : 0);
@@ -44,5 +45,16 @@ public class EndScreen : MonoBehaviour
             ellapsedSeconds += Time.deltaTime;
             yield return null;
         }
+    }
+
+    //called by button
+    public void OnMainMenuClicked()
+    {
+        SceneManager.LoadScene("Menu");
+    }
+
+    public void OnTryAgainClicked()
+    {
+        SceneManager.LoadScene("Level1");
     }
 }
