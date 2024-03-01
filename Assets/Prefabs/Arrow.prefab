@@ -61,6 +61,7 @@ MonoBehaviour:
     m_Bits: 64
   knockbackDurationSeconds: 0.3
   knockbackVelocity: {x: 10, y: 20}
+  disarmForSecondsOnDeflect: 0.2
 --- !u!212 &3590680951409365034
 SpriteRenderer:
   m_ObjectHideFlags: 0

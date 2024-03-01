@@ -46,7 +46,6 @@ public class Jumper : MonoBehaviour
     //for jump cooldown + timeout
     private float jumpStartedAtTime;
 
-
     //set from input
     private bool jumpedFromGround;
 

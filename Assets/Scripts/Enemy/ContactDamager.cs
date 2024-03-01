@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EnemyCollider : MonoBehaviour
+public class ContactDamager : MonoBehaviour
 {
 
     [SerializeField]
@@ -14,17 +14,11 @@ public class EnemyCollider : MonoBehaviour
     [SerializeField]
     private Rigidbody2D rb;
 
-    private Vector2 previousVelocity;
+    [SerializeField]
+    private Collider2D contactCollider;
 
-    private void Awake()
-    {
-        this.previousVelocity = Vector2.zero;
-    }
-
-    private void FixedUpdate()
-    {
-        this.previousVelocity = this.rb.velocity;
-    }
+    [SerializeField]
+    private float disarmForSecondsOnHurt;
 
     public void OnTriggerEnter2D(Collider2D other)
     {
@@ -39,9 +33,14 @@ public class EnemyCollider : MonoBehaviour
             else
                 otherObject = other.gameObject;
 
-
-            Debug.Log("dmg");
-
+            Hitable hitable = otherObject.GetComponent<Hitable>();
+            if (hitable != null) {
+                if (!hitable.CanBeHit())
+                    return;
+                else
+                    hitable.TakeHit();
+            }
+            
             DamageHandler damageHandler = otherObject.GetComponent<DamageHandler>();
             if(damageHandler != null)
             {
@@ -57,5 +56,17 @@ public class EnemyCollider : MonoBehaviour
                 mover.Knockback(this.enemyStats.KnockbackDuration, knockBackForceWithDir);
             }
         }
+    }
+
+    public void TemporaryDisarmForHurt()
+    {
+        this.StartCoroutine(TemporaryDisarmCoroutine(this.disarmForSecondsOnHurt));
+    }
+
+    private IEnumerator TemporaryDisarmCoroutine(float seconds)
+    {
+        this.contactCollider.enabled = false;
+        yield return new WaitForSeconds(seconds);
+        this.contactCollider.enabled = true;
     }
 }

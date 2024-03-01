@@ -34,6 +34,10 @@ public class Arrow : MonoBehaviour
     [SerializeField]
     private Vector2 knockbackVelocity;
 
+    [SerializeField]
+    private float disarmForSecondsOnDeflect;
+
+
     private bool isArmed;
     private float immobileOnGroundFor;
     private Vector2 previousVelocity;
@@ -100,5 +104,13 @@ public class Arrow : MonoBehaviour
     {
         this.spriteRenderer.flipX = !this.spriteRenderer.flipX;
         this.rb.velocity = new Vector2(this.rb.velocity.x * -1, this.rb.velocity.y);
+        this.StartCoroutine(TemporaryDisarmCoroutine(this.disarmForSecondsOnDeflect));
+    }
+
+    private IEnumerator TemporaryDisarmCoroutine(float seconds)
+    {
+        this.isArmed = false;
+        yield return new WaitForSeconds(seconds);
+        this.isArmed = true;
     }
 }

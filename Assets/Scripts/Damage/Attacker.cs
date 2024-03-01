@@ -20,6 +20,15 @@ public class Attacker : MonoBehaviour
     {
         if (hitableLayers.Contains(other.gameObject.layer))
         {
+            Hitable hitable = other.GetComponent<Hitable>();
+            if(hitable != null)
+            {
+                if (!hitable.CanBeHit())
+                    return;
+                else
+                    hitable.TakeHit();
+            }
+
             Mover mover = other.GetComponent<Mover>();
             if(mover != null)
             {
@@ -32,6 +41,17 @@ public class Attacker : MonoBehaviour
             {
                 arrow.Deflect();
             }
+
+            //disables contact damage and makes transparent
+            SpriteFlasher ghostEffect = other.GetComponent<SpriteFlasher>();
+            if(ghostEffect != null)
+            {
+                ghostEffect.Trigger();
+            }
+
+            ContactDamager contactDamager = other.GetComponentInChildren<ContactDamager>();
+            if (contactDamager != null)
+                contactDamager.TemporaryDisarmForHurt();
         }
     }
 }
