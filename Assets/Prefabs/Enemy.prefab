@@ -308,8 +308,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sprite: {fileID: 4558094475850901290}
-  durationSeconds: 1
-  ghostColor: {r: 1, g: 0, b: 0, a: 1}
+  durationSeconds: 2
+  ghostColor: {r: 1, g: 0, b: 0, a: 0.45490196}
   curve:
     serializedVersion: 2
     m_Curve:

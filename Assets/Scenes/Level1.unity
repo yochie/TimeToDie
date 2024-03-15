@@ -11679,6 +11679,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Enemy
       objectReference: {fileID: 0}
+    - target: {fileID: 2429035056335652753, guid: 25bbc96257a701242879358cbd9d00d1, type: 3}
+      propertyPath: disarmForSecondsOnHurt
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 2798250429374343610, guid: 25bbc96257a701242879358cbd9d00d1, type: 3}
       propertyPath: m_IsTrigger
       value: 1
