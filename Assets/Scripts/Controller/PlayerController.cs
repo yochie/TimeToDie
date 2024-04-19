@@ -71,6 +71,9 @@ public class PlayerController : MonoBehaviour, IAnimatedSpriteController
 
     internal void Disable()
     {
+        Debug.Log("disabled");
+        this.mover.Disable();
+
         this.enabled = false;
     }
 }

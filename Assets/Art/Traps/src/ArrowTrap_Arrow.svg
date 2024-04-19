@@ -51,7 +51,7 @@
       <path
          transform="matrix(-1.1,0,0,-1.1,-1.1,0)"
          d="M 8.7185878,4.0337352 -2.2072895,0.01601326 8.7185884,-4.0017078 c -1.7454984,2.3720609 -1.7354408,5.6174519 -6e-7,8.035443 z"
-         style="fill:#20191a;fill-opacity:1;fill-rule:evenodd;stroke:#20191a;stroke-width:0.625;stroke-linejoin:round;stroke-opacity:1"
+         style="fill:#adbec6;fill-opacity:1;fill-rule:evenodd;stroke:#adbec6;stroke-width:0.625;stroke-linejoin:round;stroke-opacity:1"
          id="path864" />
     </marker>
     <marker
@@ -128,17 +128,17 @@
      guidetolerance="10"
      inkscape:pageopacity="0"
      inkscape:pageshadow="2"
-     inkscape:window-width="2400"
-     inkscape:window-height="1271"
+     inkscape:window-width="2560"
+     inkscape:window-height="1361"
      id="namedview4"
      showgrid="false"
-     inkscape:zoom="24.014117"
+     inkscape:zoom="27.588203"
      inkscape:cx="24.735658"
      inkscape:cy="13.0928"
-     inkscape:window-x="3191"
-     inkscape:window-y="324"
+     inkscape:window-x="-9"
+     inkscape:window-y="-9"
      inkscape:window-maximized="1"
-     inkscape:current-layer="g1662"
+     inkscape:current-layer="g965"
      inkscape:document-rotation="0" />
   <g
      inkscape:groupmode="layer"
@@ -159,7 +159,7 @@
            d="M 29.413558,16.080836 H -6.111797"
            id="path1593" />
         <path
-           style="fill:none;stroke:#20191a;stroke-width:0.957298;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;marker-end:url(#Arrow2Lend)"
+           style="fill:none;stroke:#adbec6;stroke-width:0.957298;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;marker-end:url(#Arrow2Lend)"
            d="m -12.834771,15.983137 h -1.6553"
            id="path841" />
       </g>

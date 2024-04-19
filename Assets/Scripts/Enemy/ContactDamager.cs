@@ -22,7 +22,7 @@ public class ContactDamager : MonoBehaviour
 
     public void OnTriggerEnter2D(Collider2D other)
     {
-        Debug.Log("triggered");
+        //Debug.Log("triggered");
         if (this.damagesLayers.Contains(other.gameObject.layer))
         {
             //if colliding with hurbox instead of main object, grab main object from hurtbox property

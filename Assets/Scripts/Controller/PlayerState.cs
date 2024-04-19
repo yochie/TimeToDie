@@ -27,6 +27,9 @@ public class PlayerState : MonoBehaviour
     {        
         this.currentPain = 0;
         this.CanTakeDamage = true;
+        this.health.Init();
+        this.ui.SetHealthBar(this.health.CurrentHealth, this.health.MaxHealth);
+        this.ui.SetPain(this.currentPain, this.maxPain);
     }
 
     //will apply damage and then pain if character survives hit
@@ -61,6 +64,6 @@ public class PlayerState : MonoBehaviour
         this.playerController.Animator.SetBool("dead", true);
         this.gameController.StopTimer();
         yield return new WaitForSeconds(2);
-        this.gameController.EndGame(died: died, this.currentPain);
+        this.gameController.EndGame(died: died, this.currentPain, this.maxPain);
     }
 }

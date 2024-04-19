@@ -22,4 +22,9 @@ public class ScoreCalculator : MonoBehaviour
         int score = (int) Mathf.Clamp((painScore + timeScore), 0, this.maxTimeScore + this.maxPainScore);
         return score;
     }
+
+    internal float GetAverageSeconds()
+    {
+        return this.maxTimeForPositiveScore;
+    }
 }

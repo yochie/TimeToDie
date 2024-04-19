@@ -13,7 +13,7 @@
    width="64"
    height="32"
    viewBox="0 0 64 32"
-   sodipodi:docname="ArrowTrap_right.svg"
+   sodipodi:docname="ArrowTrap_Right.svg"
    inkscape:version="1.0.2-2 (e86c870879, 2021-01-15)"
    inkscape:export-filename="E:\code\temp_name\TimeToDie\Assets\Art\Traps\ArrowTrap_Right.png"
    inkscape:export-xdpi="96"
@@ -26,7 +26,7 @@
         <dc:format>image/svg+xml</dc:format>
         <dc:type
            rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
-        <dc:title></dc:title>
+        <dc:title />
       </cc:Work>
     </rdf:RDF>
   </metadata>
@@ -43,7 +43,7 @@
       <path
          transform="matrix(-1.1,0,0,-1.1,-1.1,0)"
          d="M 8.7185878,4.0337352 -2.2072895,0.01601326 8.7185884,-4.0017078 c -1.7454984,2.3720609 -1.7354408,5.6174519 -6e-7,8.035443 z"
-         style="fill:#20191a;fill-opacity:1;fill-rule:evenodd;stroke:#20191a;stroke-width:0.625;stroke-linejoin:round;stroke-opacity:1"
+         style="fill:#adbec6;fill-opacity:1;fill-rule:evenodd;stroke:#adbec6;stroke-width:0.625;stroke-linejoin:round;stroke-opacity:1"
          id="path864" />
     </marker>
     <marker
@@ -116,13 +116,14 @@
      inkscape:window-height="1361"
      id="namedview4"
      showgrid="false"
-     inkscape:zoom="9.0470574"
+     inkscape:zoom="10.393555"
      inkscape:cx="21.120643"
      inkscape:cy="45.064202"
      inkscape:window-x="-9"
      inkscape:window-y="-9"
      inkscape:window-maximized="1"
-     inkscape:current-layer="layer1" />
+     inkscape:current-layer="g1662"
+     inkscape:document-rotation="0" />
   <g
      inkscape:groupmode="layer"
      inkscape:label="Image"
@@ -138,30 +139,14 @@
          width="32"
          height="32"
          preserveAspectRatio="none"
-         xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAACXBIWXMAAA7DAAAOwwHHb6hkAAAA
-GXRFWHRTb2Z0d2FyZQB3d3cuaW5rc2NhcGUub3Jnm+48GgAAAvVJREFUWIXFlmFvEkEQhp9ZjnJU
-INqWow2gRtMYP/n/f4afNGqxWGhLm1KFFu4uyvrh2IPj9jggNb4JybE7++7szLw7KydHjdsPp+8r
-SimW8Tj1eSo8c12Q9PjHr59wNNoF3OHwF1rrJ9t0Gf4kfZjDg+egQQH8y83zoAA0/2dzAGd14GY0
-2Dga9ZqHErXTmrvhT7TWaQfQUK96uPsuIoI/8bkd3dBstFCiuBj8SG+29LfVaMd2R5V6imcVCQdK
-5RKMAIFOv4vWmret1zCGcBri7ruJxTZCQQimAWhw9106l130TNM8PLZGRFlHgaKjaB4cE/oh6KhO
-DPE6BNMg8d18ccxeMXMbSwrik0B/eIUG9pxsglVoNDIXfe/uMnd9pgMQRaHdeIlSQjANgSjHlXIZ
-gM/dL2iteffqFCWKR9+PI9BqtEGgd33BTM92c0BECP0QkcU1FvohQz80xwXg/n6UsDF2yzw7OQCL
-MNqw5yhEZCObrRxwyy6MAR2lAcCrNWKiVd1vYmM43bKbiE5udXm1BkoUSBRKo2vzA+LvxByyWLsG
-1ggE04CW10ZEErLaGhIVY8xjyZPVgd7dJaZ/avRWMlxG/+4ql8fqwJvma0TNtZwjo3UwMo65Bhcp
-G+vRQj+k0+tGIZP1MloHUw+dfhd/skUKbkYDnMJOe1qx5yhuRwPrXCICy4WSVThnvXNmM3tKzvrn
-qXTl9Q9rBOpVLxV2o9+io9AZNVEsRGvirjpvYvWaB9i7p9UB04RahyepOQHIqImsWukPr5npmVUF
-CmDsP6Rutl2lZ8M6Puto1g1WKpesz+tluGU3NSZrOO1uZWyyqRytdhlLM+Ncr3nxwwLmFb5S/fWq
-FzWgFfZvve8J22Uuc7WP/TEa26OU6Ao1FWHaabEgnPXPKRYWTch2SRmbLC7zYjJjKQeMZLbBLmsM
-Ug5k5TkK2eaoliob1UzswDh42Ji8UqrkiSFGnuMOwDSYZN0tVkyDx82Nc+AAhL//PBnhtvgLxWVR
-yMv8YNcAAAAASUVORK5CYII=
-"
+         xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAACXBIWXMAAA7DAAAOwwHHb6hkAAAA GXRFWHRTb2Z0d2FyZQB3d3cuaW5rc2NhcGUub3Jnm+48GgAAAvVJREFUWIXFlmFvEkEQhp9ZjnJU INqWow2gRtMYP/n/f4afNGqxWGhLm1KFFu4uyvrh2IPj9jggNb4JybE7++7szLw7KydHjdsPp+8r SimW8Tj1eSo8c12Q9PjHr59wNNoF3OHwF1rrJ9t0Gf4kfZjDg+egQQH8y83zoAA0/2dzAGd14GY0 2Dga9ZqHErXTmrvhT7TWaQfQUK96uPsuIoI/8bkd3dBstFCiuBj8SG+29LfVaMd2R5V6imcVCQdK 5RKMAIFOv4vWmret1zCGcBri7ruJxTZCQQimAWhw9106l130TNM8PLZGRFlHgaKjaB4cE/oh6KhO DPE6BNMg8d18ccxeMXMbSwrik0B/eIUG9pxsglVoNDIXfe/uMnd9pgMQRaHdeIlSQjANgSjHlXIZ gM/dL2iteffqFCWKR9+PI9BqtEGgd33BTM92c0BECP0QkcU1FvohQz80xwXg/n6UsDF2yzw7OQCL MNqw5yhEZCObrRxwyy6MAR2lAcCrNWKiVd1vYmM43bKbiE5udXm1BkoUSBRKo2vzA+LvxByyWLsG 1ggE04CW10ZEErLaGhIVY8xjyZPVgd7dJaZ/avRWMlxG/+4ql8fqwJvma0TNtZwjo3UwMo65Bhcp G+vRQj+k0+tGIZP1MloHUw+dfhd/skUKbkYDnMJOe1qx5yhuRwPrXCICy4WSVThnvXNmM3tKzvrn qXTl9Q9rBOpVLxV2o9+io9AZNVEsRGvirjpvYvWaB9i7p9UB04RahyepOQHIqImsWukPr5npmVUF CmDsP6Rutl2lZ8M6Puto1g1WKpesz+tluGU3NSZrOO1uZWyyqRytdhlLM+Ncr3nxwwLmFb5S/fWq FzWgFfZvve8J22Uuc7WP/TEa26OU6Ao1FWHaabEgnPXPKRYWTch2SRmbLC7zYjJjKQeMZLbBLmsM Ug5k5TkK2eaoliob1UzswDh42Ji8UqrkiSFGnuMOwDSYZN0tVkyDx82Nc+AAhL//PBnhtvgLxWVR yMv8YNcAAAAASUVORK5CYII= "
          id="image12" />
       <path
          style="fill:none;stroke:#362731;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
          d="M 2.8918741,10.864068 H -2.6183184"
          id="path1593" />
       <path
-         style="fill:none;stroke:#20191a;stroke-width:0.957298;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;marker-end:url(#Arrow2Lend)"
+         style="fill:none;stroke:#adbec6;stroke-width:0.957298;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;marker-end:url(#Arrow2Lend)"
          d="M -9.3412926,10.766369 H -10.996592"
          id="path841" />
     </g>

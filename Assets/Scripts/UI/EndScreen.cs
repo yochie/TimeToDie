@@ -26,11 +26,11 @@ public class EndScreen : MonoBehaviour
     [SerializeField]
     private float fadeInDurationSeconds;
 
-    internal void Display(bool win, float timerSeconds, int pain, int score)
+    internal void Display(bool win, float timerSeconds, float averageSeconds, int pain, int maxPain, int score)
     {
         this.header.text = win ? "Congrats, you died." : "The pain... its too much to handle.";
-        this.time.text = string.Format("Time : {0} seconds", timerSeconds.ToString("F", CultureInfo.InvariantCulture));
-        this.pain.text = string.Format("Pain : {0} dols", pain);
+        this.time.text = string.Format("Time : {0} / {1} seconds", timerSeconds.ToString("F", CultureInfo.InvariantCulture), averageSeconds);
+        this.pain.text = string.Format("Pain : {0} / {1} dols", pain, maxPain);
         this.score.text = string.Format("Score : {0} %", win ? score : 0);
         this.gameObject.SetActive(true);
         this.StartCoroutine(FadeInCoroutine());

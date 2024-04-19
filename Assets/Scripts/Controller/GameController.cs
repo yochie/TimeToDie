@@ -17,12 +17,12 @@ public class GameController : MonoBehaviour
     [SerializeField]
     private PlayerController playerController;
 
-    public void EndGame(bool died, float pain)
+    public void EndGame(bool died, float pain, float maxPain)
     {
         //this.playerController.gameObject.SetActive(false);
         float timer = this.timer.GetTimerVal();
         int score = this.scorer.GetScore(pain, timer);
-        this.ui.EndGame(win: died, timer, pain, score);
+        this.ui.EndGame(win: died, timer, this.scorer.GetAverageSeconds(), pain, maxPain, score);
     }
 
     internal void StopTimer()

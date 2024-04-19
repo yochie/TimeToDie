@@ -54,6 +54,13 @@ public class Mover : MonoBehaviour
         this.knockbackImmunityRemaining = 0;
     }
 
+    //used to reset material on player death
+    internal void Disable()
+    {
+        this.rb.sharedMaterial = this.normalMaterial;
+        this.rb.drag = 2f;
+    }
+
     //updates tracked state and returns velocity for frame
     public void UpdateForFixedFrame(bool jumpHeld)
     {
